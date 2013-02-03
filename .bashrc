@@ -109,12 +109,13 @@ fi
 set show-all-if-ambiguous on  # use 'bind "set show ...."' when using straight in command line instead of bashrc
 set completion-ignore-case on 
 shopt -s autocd #Auto 'cd' when entering just a path
-shopt -s cdspell #Automaticall correct mistyped dir names on cd 
+shopt -s cdspell #Automatically correct mistyped dir names on cd 
 
 PATH=$PATH:/home/thameera/ws/bin
 
 alias g='git'
 
+# Used to add the current branch name to prompt
 function parse_git_branch {
 	  BRANCH="$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
 	  if [ "$BRANCH" == "" ]; then
@@ -125,6 +126,7 @@ function parse_git_branch {
 	  printf "(%b)" "$BRANCH$STATUS"
 }
 
+# Wrote the following three functions to easily swap between branches. Don't use much now.
 function gbr() { cur_branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'); }
 
 function gc() {	if [ $1 ]; then	gbr; prev_branch=$cur_branch; g co $1; fi; }
@@ -144,13 +146,15 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 
+# Aliases for Aptitude. Using apt-fast instead of apt-get.
 alias aptc='apt-cache search'
 alias apts='apt-cache show'
 alias inst='sudo apt-fast install'
 alias updt='sudo apt-fast update'
+alias upgr='sudo apt-fast upgrade'
 alias armv='sudo apt-fast remove'
 
-alias please='sudo' # my favorite! ;)
+alias please='sudo'
 
 alias l='ls -CF' #C -> show in cols; F -> append indicators (one of */=>@|) to entries 
 alias la='ls -A'
@@ -168,10 +172,12 @@ alias lsg='ls | grep'
 alias grepr='grep -r'
 alias tm='ps -ef | grep'  # task manager. Much like pgrep, but better
 alias vi='vim'
-alias vip='vi -p'
+alias vip='vi -p' #Open tabs
+alias vis='vi -S' # Open session
 alias rm='rm -I'  # much nicer than rm -i
+alias delswap='rm -f .*.swp'
 
-# git!
+# git
 alias k='gitk --all &'
 alias gc='git checkout'
 alias gs='git status'
@@ -187,8 +193,11 @@ alias unstage='git reset HEAD'
 
 alias gh='githug'
 
+# ttytter
 alias tw='(cd ~/ttytter;./_tty203 -ansi -dostream -ssl -verify -exts=ext/r2a.pl,ext/timestamp.pl,myext/info/info.pl,myext/pocket/pocket.pl)'
 alias chmem='ps -eo rss,args | grep chrome | awk '\''{total+=$1}END{print total}'\'''
+
+# rename JPGs in dir to random sha values
 alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cut -f1 -d" ").jpg; done'
 
 # extract archives
@@ -213,12 +222,23 @@ extract () {
      fi
 }
 
+# I edit .bashrc a lot!
 alias vib='vi ~/.bashrc'
 alias sb='source ~/.bashrc'
+
 alias hist='history | grep'  #requires an arg
+
+# pending removal:
+alias node='/usr/bin/nodejs'
+alias npm='/usr/bin/npm'
 
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u: \[\e[33m\]\w\[\e[37m\]$(parse_git_branch)\[\e[32m\] \$\[\e[0m\] '
 
+# cowsay fortune each time a bash session starts
 if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
 	fortune -as | cowsay
 fi
+
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
