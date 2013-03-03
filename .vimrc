@@ -7,6 +7,12 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+"No arrow keys for you!
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 set shiftwidth=4
 set tabstop=4
 "set noautoindent
@@ -24,6 +30,9 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 "case sensitivity
 set ignorecase " ic
 set smartcase  " sc - case sensitive if term contains uppercase letters
+
+"set undo directory. Having un~ files everywhere is messy
+set undodir=~/.tmp
 
 "Ack is grep for vim
 nnoremap <leader>a :Ack 
@@ -86,6 +95,9 @@ map <F4> :TlistToggle<cr>
 
 "Powerline
 python from powerline.bindings.vim import source_plugin; source_plugin()
+
+"Tagbar
+nmap <F6> :TagbarToggle<CR>
 
 "Always on rainbow parentheses 
 au VimEnter * RainbowParenthesesToggle
