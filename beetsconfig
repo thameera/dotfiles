@@ -1,0 +1,9 @@
+[beets]
+directory: ~/bench/inbox/beetsdir
+library: ~/bench/inbox/beetslib/lib.blb
+plugins: fetchart zero
+path_format: $artist/$album ($year)/$track $title
+
+[zero]
+fields: month day comments
+
