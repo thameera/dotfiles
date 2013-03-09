@@ -1,0 +1,35 @@
+[user]
+	name = Thameera Senanayaka
+	email = thameera123@gmail.com
+
+[alias]
+	ci = commit
+	co = checkout
+	rh = reset --hard
+	amend = commit --amend
+	head = log -n1
+	pull = pull --ff-only # no random merges, thank you very much
+
+	## Log
+	lg = log --oneline --decorate
+	log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+
+	## Lookup aliases
+	who = shortlog -s --
+	whorank = shortlog -sn --no-merges
+
+	## Ignoring tracked files temporarily
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep ^[a-z]
+
+	##  Misc
+	# Show the date of the first commit
+	log-first-date = !"git log --date-order --date=iso --pretty=\"format:%ad\" --reverse | head -1"
+	# Use whenever you're going to do sth drastic and risky
+	panic = !"tar cf ../git_panic_${PWD##*/}.tar.gz ."
+	# Show all my aliases
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+[merge]
+	tool = meld
