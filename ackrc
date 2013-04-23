@@ -1,0 +1,12 @@
+# Always color, even if piping to another program
+--color
+
+--color-match=red
+
+--smart-case
+
+# Print filenames and break b4 each result set
+--group
+
+--sort-files
+
