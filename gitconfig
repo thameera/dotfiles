@@ -33,3 +33,14 @@
 
 [merge]
 	tool = meld
+
+[push]
+  default = upstream
+
+[core]
+  autocrlf = false
+  filemode = false
+
+[color]
+	ui = auto
+
