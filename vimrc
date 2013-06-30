@@ -2,24 +2,56 @@
 "This need to be set before any plugins are loaded
 let mapleader = ","
 
-execute pathogen#infect()
+"execute pathogen#infect()
+
+" For vundle
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/powerline'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-obsession'
+Bundle 'tpope/vim-sensible'
+Bundle 'ervandew/supertab'
+Bundle 'mhinz/vim-startify'
 
 syntax on
 filetype plugin indent on
-
+"
 "No arrow keys for you!
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
 
-set shiftwidth=4
-set tabstop=4
-"set noautoindent
+set bs=indent,eol,start   " allow backspacing over everything
+set softtabstop=2   " no of spaces for tab when editing
+set tabstop=2       " no. of spaces for tab in file
+set expandtab       " expand tabs into spaces
+set smarttab        " smart tabulation n backspace
+
 set autoindent
 set smartindent
+set shiftwidth=2    " no. of spaces for step in autoindent
+
 set tabpagemax=20
-" set foldmethod=syntax
+
+" Turn mouse on in normal mode
+set mouse=n
+
+" Exception for python, sh files
+au FileType python,sh,c,cpp,h set tabstop=4 shiftwidth=4 softtabstop=4
 
 "search
 " highlight search results
@@ -83,7 +115,7 @@ nnoremap <leader>t :tabnew<CR>
 "Line numbers
 set number " nu
 :nmap <C-N><C-N> :set invnumber<CR>
-" The following sets a better color to line numbers
+" Set a better color to line numbers
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 
 "ctags related
