@@ -8,7 +8,7 @@
 
 dir=~/ws/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="ackrc bashrc beetsconfig gitconfig inputrc vimrc"    # list of files/folders to symlink in homedir
+files="ackrc bashrc beetsconfig gitconfig inputrc vimrc xmobarrc xsessionrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -29,4 +29,9 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+echo "Moving xmonad files"
+mv ~/.xmonad/xmonad.hs ~/.dotfiles_old/
+ln -s $dir/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+echo "...done"
 
