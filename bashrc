@@ -111,7 +111,8 @@ set completion-ignore-case on
 shopt -s autocd #Auto 'cd' when entering just a path
 shopt -s cdspell #Automatically correct mistyped dir names on cd 
 
-PATH=$PATH:/home/thameera/ws/bin
+PATH="/home/thameera/ws/bin:/home/thameera/.cabal/bin:$PATH"
+#PATH="$HOME/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:$HOME/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:$HOME/bin/phonegap-android/bin:$PATH"
 
 alias g='git'
 
@@ -133,11 +134,17 @@ function gc() {	if [ $1 ]; then	gbr; prev_branch=$cur_branch; g co $1; fi; }
 
 function gsw() { if [ $prev_branch ]; then gbr; g co $prev_branch; prev_branch=$cur_branch; else echo "Sorry, boss, no previous branch defined"; fi; }
 
-#cd and ls in one
+# cd and ls in one
 cl() { if [ -d "$1" ]; then cd "$1"; ls; else echo "bash: cl: '$1': Directory not found"; fi; }
 
-#mkdir && cd
-mcd() { mkdir -p "$@" && cd $_; } 
+# mkdir && cd
+mcd() { mkdir -p "$@" && cd $_; }
+
+# enhance pgrep
+function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
+
+# find files
+function fname() { find . -iname "*$@*"; }
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -176,6 +183,12 @@ alias vip='vi -p' #Open tabs
 alias vis='vi -S' # Open session
 alias rm='rm -I'  # much nicer than rm -i
 alias delswap='rm -f .*.swp'
+alias dux='du -sh *|sort -h'  # human-readable, sorted
+
+alias gpp='g++ -std=c++11'
+
+# beets
+alias bi='beet import'
 
 # git
 alias k='gitk --all &'
@@ -193,12 +206,27 @@ alias unstage='git reset HEAD'
 
 alias gh='githug'
 
+# xmonad
+alias gp='gnome-panel'
+
+# tmux
+alias tmux='TERM=xterm-256color tmux'
+alias colors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolour${i}\n"; done'
+alias tc='tmux show-buffer'
+alias tmli='tmux list-sessions'
+# tmuxifier
+#[[ -s "$HOME/.tmuxifier/init.sh" ]] && source "$HOME/.tmuxifier/init.sh"
+
 # ttytter
-alias tw='(cd ~/ttytter;./_tty203 -ansi -dostream -ssl -verify -exts=ext/r2a.pl,ext/timestamp.pl,myext/info/info.pl,myext/pocket/pocket.pl)'
-alias chmem='ps -eo rss,args | grep chrome | awk '\''{total+=$1}END{print total}'\'''
+#alias tw='(cd ~/ws/bin/ttytter;./ttytter2.1.00.pl -ansi -dostream -ssl -verify -vcheck -exts=ext/r2a.pl,ext/timestamp.pl,ext/info.pl,ext/pocket.pl)'
+#alias tw='(cd ~/ws/bin/ttytter;./ttytter2.1.00.pl -ansi -dostream -ssl -verify -hold -exts=ws/ttytter-r2a/ttytter-r2a.pl,ext/timestamp.pl,ext/info.pl,ext/pocket.pl)'
+alias tw='~/ttytter/tty2100'
+alias tw1='~/ttytter/tty2100 -rc=1'
 
 # rename JPGs in dir to random sha values
 alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cut -f1 -d" ").jpg; done'
+# rename DAT to MPG
+alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".").mpg; done'
 
 # extract archives
 extract () {
@@ -236,9 +264,17 @@ PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u: \[\e[33m\]\w\[\e[37m\]$(parse_git_branch)\[\e[
 
 # cowsay fortune each time a bash session starts
 if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-	fortune -as | cowsay
+    #fortune -a | fmt -80 -s | cowsay -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n;
+    fortune -as | cowsay
 fi
 
+source ~/.privatebash
+
+set -o vi  # Vi mode!
+
+# Go
+export GOPATH=$HOME/ws/go
+export PATH=$PATH:$GOPATH/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
