@@ -25,6 +25,7 @@ Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-sensible'
 Bundle 'ervandew/supertab'
 Bundle 'mhinz/vim-startify'
+Bundle 'airblade/vim-gitgutter'
 
 syntax on
 filetype plugin indent on
