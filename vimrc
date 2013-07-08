@@ -26,15 +26,10 @@ Bundle 'tpope/vim-sensible'
 Bundle 'ervandew/supertab'
 Bundle 'mhinz/vim-startify'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'Lokaltog/vim-easymotion'
 
 syntax on
 filetype plugin indent on
-"
-"No arrow keys for you!
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
 
 set bs=indent,eol,start   " allow backspacing over everything
 set softtabstop=2   " no of spaces for tab when editing
