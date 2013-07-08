@@ -40,12 +40,14 @@ ZSH_THEME="af-magic"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux debian)
+plugins=(git tmux debian history syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:/home/thameera/bin/phonegap-android/bin:/home/thameera/ws/bin:/home/thameera/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/thameera/ws/bin
+
+HISTSIZE=6000
 
 alias g='git'
 
@@ -73,6 +75,7 @@ alias vi='vim'
 alias vip='vi -p' #Open tabs
 alias vis='vi -S' # Open session
 alias rm='rm -I'  # much nicer than rm -i
+alias mv='mv -i'  # prompt before overwrite
 alias delswap='rm -f .*.swp'
 alias dux='du -sh *|sort -h'  # human-readable, sorted
 
@@ -110,11 +113,18 @@ alias tmli='tmux list-sessions'
 alias tw='~/ttytter/tty2100'
 alias tw1='~/ttytter/tty2100 -rc=1'
 
+alias showip='curl icanhazip.com'
+
 # rename JPGs in dir to random sha values
 alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cut -f1 -d" ").jpg; done'
 # rename DAT to MPG
 alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".").mpg; done'
 
+
+# Suffix aliases
+alias -s cpp=vim
+alias -s h=vim
+alias -s js=vim
 
 alias viz="vi ~/.zshrc"
 alias sz="source ~/.zshrc"
@@ -132,4 +142,11 @@ set -o vi  # Vi mode!
 # Go
 export GOPATH=$HOME/ws/go
 export PATH=$PATH:$GOPATH/bin
+
+# History search with arrow keys (.inputrc replacement)
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
+bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
 
