@@ -3,11 +3,12 @@ import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig
 import XMonad.Util.Dzen
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Actions.Volume
 import System.IO
+import qualified XMonad.Actions.FlexibleResize as Flex
 
 alert = dzenConfig return . show
 
@@ -33,5 +34,8 @@ main = do
         , ((0, xK_F6), lowerVolume 4 >>= alert)
         , ((0, xK_F7), raiseVolume 4 >>= alert)
         , ((0, xK_F8), toggleMute    >>  return ())
+        ]
+        `additionalMouseBindings`
+        [ ((mod4Mask, button3), (\w -> focus w >> Flex.mouseResizeWindow w))
         ]
 

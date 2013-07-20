@@ -126,7 +126,6 @@ alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".")
 # Suffix aliases
 alias -s cpp=vim
 alias -s h=vim
-alias -s js=vim
 
 alias viz="vi ~/.zshrc"
 alias sz="source ~/.zshrc"
