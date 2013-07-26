@@ -51,6 +51,7 @@ export LESS="-aFirX"
 
 HISTSIZE=6000
 
+alias git='noglob git'
 alias g='git'
 
 # cd and ls in one
@@ -65,21 +66,34 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 # find files
 function fname() { find . -iname "*$@*"; }
 
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
+# Global aliases
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+alias -g .......='../../../../../..'
 
-alias lsg='ls | grep'
-alias grepr='grep -r'
-alias tm='ps -ef | grep'  # task manager. Much like pgrep, but better
+alias -g H='| head'
+alias -g L='| less'
+alias -g G='| grep'
+
+# ls
+alias ll='ls -alGh'
+alias lsg='ll | grep'
+
+# vim
 alias vi='vim'
 alias vip='vi -p' #Open tabs
 alias vis='vi -S' # Open session
+alias ve='vim ~/.vimrc'
+
+alias grepr='grep -r'
+alias tm='ps -ef | grep'  # task manager. Much like pgrep, but better
 alias rm='rm -I'  # much nicer than rm -i
 alias mv='mv -i'  # prompt before overwrite
 alias delswap='rm -f .*.swp'
 alias dux='du -sh *|sort -h'  # human-readable, sorted
+alias df='df -h'
 
 alias gpp='g++ -std=c++11'
 
@@ -95,12 +109,19 @@ alias gb='git branch'
 alias gci='git commit -sm'
 alias gd='git diff'
 alias gsh='git show'
+alias gps='git push'
 alias gpl='git pull'
+alias gplr='git pull --rebase'
 alias gcon='cat .git/config'
 alias gcp='git cherry-pick'
 alias unstage='git reset HEAD'
+alias grh='git reset --hard'
 
 alias gh='githug'
+
+# ps
+alias psa="ps aux"
+alias psg="ps aux | grep"
 
 # xmonad
 alias gp='gnome-panel'
@@ -127,8 +148,8 @@ alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".")
 alias -s cpp=vim
 alias -s h=vim
 
-alias viz="vi ~/.zshrc"
-alias sz="source ~/.zshrc"
+alias ze="vi ~/.zshrc"
+alias zr="source ~/.zshrc"
 
 # cowsay fortune each time a bash session starts
 if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
@@ -136,7 +157,9 @@ if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
     fortune -as | cowsay
 fi
 
-source ~/.privatebash
+if [ -e ~/.secrets ]; then
+  source ~/.secrets
+fi
 
 set -o vi  # Vi mode!
 

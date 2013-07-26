@@ -4,9 +4,12 @@
 
 [alias]
 	ci = commit
+	cia = commit -as
 	co = checkout
+  nb = checkout -b  # checkout new branch
 	rh = reset --hard
 	amend = commit --amend
+	aamend = commit -a --amend
 	head = log -n1
 	pull = pull --ff-only # no random merges, thank you very much
 
@@ -39,6 +42,7 @@
 
 [core]
   autocrlf = false
+  editor = vim
   filemode = false
 
 [color]
