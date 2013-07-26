@@ -27,6 +27,8 @@ Bundle 'ervandew/supertab'
 Bundle 'mhinz/vim-startify'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Raimondi/delimitMate'
+Bundle 'SirVer/ultisnips'
 
 syntax on
 filetype plugin indent on
@@ -104,6 +106,10 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 " new tab
 nnoremap <leader>t :tabnew<CR>
+" Use <Leader>tl to move to last viewed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
 
 "Background color
 :highlight Normal ctermbg=235
