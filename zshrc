@@ -91,7 +91,7 @@ alias grepr='grep -r'
 alias tm='ps -ef | grep'  # task manager. Much like pgrep, but better
 alias rm='rm -I'  # much nicer than rm -i
 alias mv='mv -i'  # prompt before overwrite
-alias delswap='rm -f .*.swp'
+alias delswap='rm -f **/.*.swp'
 alias dux='du -sh *|sort -h'  # human-readable, sorted
 alias df='df -h'
 
