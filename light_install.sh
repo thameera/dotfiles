@@ -1,14 +1,15 @@
 #!/bin/bash
 ############################
-# install.sh
+# light_install.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/ws/dotfiles
+# Only the basic dotfiles are installed in light_install.sh 
 ############################
 
 ########## Variables
 
 dir=~/ws/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="ackrc bashrc beetsconfig gitconfig inputrc tmux.conf vimrc xmobarrc xsessionrc zshrc"    # list of files/folders to symlink in homedir
+files="ackrc bashrc gitconfig inputrc tmux.conf vimrc zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -27,11 +28,10 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-echo "Moving xmonad files"
-mv ~/.xmonad/xmonad.hs ~/.dotfiles_old/ 2>/dev/null
-ln -s $dir/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-
-echo "Setting up Vundle..."
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall
-echo "...done"
+read -n1 -p "Install Vundle (y/n)? "
+if [[ "$REPLY" == [yY] ]]; then
+    echo "Setting up Vundle..."
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall
+    echo "...done"
+fi
 
