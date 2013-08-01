@@ -40,7 +40,7 @@ ZSH_THEME="af-magic"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux debian history syntax-highlighting)
+plugins=(git tmux debian syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -167,10 +167,8 @@ set -o vi  # Vi mode!
 export GOPATH=$HOME/ws/go
 export PATH=$PATH:$GOPATH/bin
 
-# History search with arrow keys (.inputrc replacement)
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
-bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
+# History substr search
+bindkey "^R" history-incremental-search-backward
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
