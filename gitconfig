@@ -5,6 +5,7 @@
 [alias]
 	ci = commit
 	cia = commit -as
+	ciam = commit -asm
 	co = checkout
   nb = checkout -b  # checkout new branch
 	rh = reset --hard
