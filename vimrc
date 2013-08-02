@@ -29,6 +29,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
 Bundle 'SirVer/ultisnips'
+Bundle 'suan/vim-instant-markdown'
 
 syntax on
 filetype plugin indent on

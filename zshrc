@@ -74,11 +74,13 @@ alias -g ......='../../../../..'
 alias -g .......='../../../../../..'
 
 alias -g H='| head'
+alias -g T='| tail'
 alias -g L='| less'
 alias -g G='| grep'
 
 # ls
 alias ll='ls -alGh'
+alias lt='ls -altr'
 alias lsg='ll | grep'
 
 # vim
@@ -95,7 +97,9 @@ alias delswap='rm -f **/.*.swp'
 alias dux='du -sh *|sort -h'  # human-readable, sorted
 alias df='df -h'
 
+# C++
 alias gpp='g++ -std=c++11'
+alias make='nocorrect make'
 
 # beets
 alias bi='beet import'
