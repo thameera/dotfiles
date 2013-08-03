@@ -49,7 +49,7 @@ export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_
 
 export LESS="-aFirX"
 
-HISTSIZE=6000
+HISTSIZE=8000
 
 alias git='noglob git'
 alias g='git'
@@ -77,6 +77,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g L='| less'
 alias -g G='| grep'
+alias -g dot='~/ws/dotfiles'
 
 # ls
 alias ll='ls -alGh'

@@ -121,6 +121,10 @@ set number " nu
 " Set a better color to line numbers
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 
+"NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-d> :NERDTreeToggle<CR>
+
 "ctags related
 " open definition in a new tab:
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> 
