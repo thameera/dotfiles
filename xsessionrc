@@ -17,5 +17,6 @@ if [ -x /usr/bin/nm-applet ] ; then
 fi
 gnome-power-manager &
 autokey &
+dropbox start
 exec xmonad
 
