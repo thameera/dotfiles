@@ -136,10 +136,18 @@ alias tmux='TERM=xterm-256color tmux'
 #alias printcolors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolour${i}\n"; done'
 alias tc='tmux show-buffer'
 alias tmli='tmux list-sessions'
+alias t='tmux'
+alias ta='tmux attach -t'
+alias tk='tmux kill-session -t'
+alias tl='tmux ls'
+alias tn='tmux new -s'
 
 # ttytter
 alias tw='~/ttytter/tty2100'
 alias tw1='~/ttytter/tty2100 -rc=1'
+
+# mpd
+alias mpdx='mpd --no-daemon --verbose'
 
 alias showip='curl icanhazip.com'
 
