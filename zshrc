@@ -50,9 +50,23 @@ export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_
 export LESS="-aFirX"
 
 HISTSIZE=8000
+setopt appendhistory
+
+## Key bindings ##
+
+# Alt-u to cd to parent dir
+bindkey -s '\eu' '^Ucd ..^M'
+
+# Pop the dir stack
+bindkey -s '\ep' '^Upopd >/dev/null; dirs -v|head -n5^M'
+
+
+## /Key bindings ##
 
 alias git='noglob git'
 alias g='git'
+
+## Functions ##
 
 # cd and ls in one
 cl() { if [ -d "$1" ]; then cd "$1"; ls; else echo "bash: cl: '$1': Directory not found"; fi; }
@@ -66,6 +80,17 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 # find files
 function fname() { find . -iname "*$@*"; }
 
+# Search Google with elinks
+function url-encode() { setopt extendedglob; echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}" }
+function google() { elinks "http://www.google.com/search?q=`url-encode "${(j: :)@}"`" }
+
+# Alt-s to insert sudo
+insert_sudo () { zle beginning-of-line; zle -U "sudo " }
+zle -N insert-sudo insert_sudo
+bindkey "^[s" insert-sudo
+
+## /Functions ##
+
 # Global aliases
 alias -g ...='../..'
 alias -g ....='../../..'
@@ -78,6 +103,11 @@ alias -g T='| tail'
 alias -g L='| less'
 alias -g G='| grep'
 alias -g dot='~/ws/dotfiles'
+
+# nocorrect
+alias mv='nocorrect mv'
+alias cp='nocorrect cp'
+alias mkdir='nocorrect mkdir'
 
 # ls
 alias ll='ls -alGh'
