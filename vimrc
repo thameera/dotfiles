@@ -34,6 +34,9 @@ Bundle 'suan/vim-instant-markdown'
 syntax on
 filetype plugin indent on
 
+" Move to prev/next line after reaching first/last char
+set whichwrap+=<,>,h,l,[,]
+
 set bs=indent,eol,start   " allow backspacing over everything
 set softtabstop=2   " no of spaces for tab when editing
 set tabstop=2       " no. of spaces for tab in file
