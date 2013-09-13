@@ -47,21 +47,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:/home/thameera/bin/phonegap-android/bin:/home/thameera/ws/bin:/home/thameera/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/thameera/ws/bin
 
-export LESS="-aFirX"
+export LESS="-aFiRX"
 
 HISTSIZE=8000
 setopt appendhistory
-
-## Key bindings ##
-
-# Alt-u to cd to parent dir
-bindkey -s '\eu' '^Ucd ..^M'
-
-# Pop the dir stack
-bindkey -s '\ep' '^Upopd >/dev/null; dirs -v|head -n5^M'
-
-
-## /Key bindings ##
 
 alias git='noglob git'
 alias g='git'
@@ -84,10 +73,8 @@ function fname() { find . -iname "*$@*"; }
 function url-encode() { setopt extendedglob; echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}" }
 function google() { elinks "http://www.google.com/search?q=`url-encode "${(j: :)@}"`" }
 
-# Alt-s to insert sudo
+# Alt-s to insert sudo (Part 1/2)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
 
 ## /Functions ##
 
@@ -108,6 +95,8 @@ alias -g dot='~/ws/dotfiles'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
+alias tmux='nocorrect tmux'
+alias npm='nocorrect npm'
 
 # ls
 alias ll='ls -alGh'
@@ -167,10 +156,10 @@ alias tmux='TERM=xterm-256color tmux'
 alias tc='tmux show-buffer'
 alias tmli='tmux list-sessions'
 alias t='tmux'
-alias ta='tmux attach -t'
-alias tk='tmux kill-session -t'
+alias ta='nocorrect tmux attach -t'
+alias tk='nocorrect tmux kill-session -t'
 alias tl='tmux ls'
-alias tn='tmux new -s'
+alias tn='nocorrect tmux new -s'
 
 # ttytter
 alias tw='~/ttytter/tty2100'
@@ -185,6 +174,8 @@ alias showip='curl icanhazip.com'
 alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cut -f1 -d" ").jpg; done'
 # rename DAT to MPG
 alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".").mpg; done'
+# battery status
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 
 
 # Suffix aliases
@@ -210,8 +201,22 @@ set -o vi  # Vi mode!
 export GOPATH=$HOME/ws/go
 export PATH=$PATH:$GOPATH/bin
 
+## Key bindings ##
+
+# Alt-u to cd to parent dir
+bindkey -s '\eu' '^Ucd ..^M'
+
+# Pop the dir stack
+bindkey -s '\ep' '^Upopd >/dev/null; dirs -v|head -n5^M'
+
 # History substr search
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
+
+# Alt-s for sudo (Part 2/2)
+zle -N insert-sudo insert_sudo
+bindkey "^[s" insert-sudo
+
+## /Key bindings ##
 
