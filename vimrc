@@ -125,8 +125,11 @@ set number " nu
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 
 " NERDTree
-autocmd VimEnter * if !argc() | Startify | NERDTree | execute "normal \<c-w>w" | endif " NERDTree + Startify
+"autocmd VimEnter * if !argc() | Startify | NERDTree | execute "normal \<c-w>w" | endif " NERDTree + Startify
 map <C-e> :NERDTreeToggle<CR>
+
+" startify
+let g:startify_custom_header = map(split(system('fortune -as | cowsay'), '\n'), '" ". v:val') + ['']
 
 "ctags related
 " open definition in a new tab:
