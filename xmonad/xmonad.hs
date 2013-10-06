@@ -13,7 +13,9 @@ import qualified XMonad.Actions.FlexibleResize as Flex
 alert = dzenConfig return . show
 
 myManageHook = composeAll
-    [ className =? "Gimp"   --> doFloat]
+    [ className =? "Gimp"   --> doFloat
+    , className =? "sun-awt-X11-XFramePeer" --> doFloat
+    , className =? "com-sun-javaws-Main" --> doFloat ]
 
 main = do
     xmproc <- spawnPipe "/home/thameera/.cabal/bin/xmobar /home/thameera/.xmobarrc"
