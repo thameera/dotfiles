@@ -60,6 +60,8 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 set ignorecase
 set smartcase  " case sensitive if term contains uppercase letters
 
+" preserve undo btvn sessions
+set undofile
 "set undo directory. Having un~ files everywhere is messy
 set undodir=~/.tmp
 
@@ -71,11 +73,14 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 " new tab
-nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>tt :tabnew<CR>
 " Use <Leader>tl to move to last viewed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 autocmd TabLeave * let g:lasttab = tabpagenr()
+
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
 
 "Background color
 highlight Normal ctermbg=235
