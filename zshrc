@@ -162,8 +162,8 @@ alias tl='tmux ls'
 alias tn='nocorrect tmux new -s'
 
 # ttytter
-alias tw='~/ttytter/tty2100'
-alias tw1='~/ttytter/tty2100 -rc=1'
+alias tw='~/ws/bin/ttytter/tty2100'
+alias tw1='~/ws/bin/ttytter/tty2100 -rc=1'
 
 # mpd
 alias mpdx='mpd --no-daemon --verbose'
@@ -176,6 +176,9 @@ alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cu
 alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".").mpg; done'
 # battery status
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+
+# Openbox
+alias or='openbox --reconfigure'
 
 
 # Suffix aliases
