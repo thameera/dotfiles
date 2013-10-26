@@ -48,6 +48,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:/home/thameera/bin/phonegap-android/bin:/home/thameera/ws/bin:/home/thameera/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/thameera/ws/bin
 
 export LESS="-aFiRX"
+export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
 
 HISTSIZE=8000
 setopt appendhistory
@@ -164,6 +165,10 @@ alias tn='nocorrect tmux new -s'
 # ttytter
 alias tw='~/ws/bin/ttytter/tty2100'
 alias tw1='~/ws/bin/ttytter/tty2100 -rc=1'
+
+# rupa/z
+source ~/bin/z.sh
+alias z='nocorrect _z 2>&1' 
 
 # mpd
 alias mpdx='mpd --no-daemon --verbose'
