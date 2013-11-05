@@ -40,7 +40,7 @@ ZSH_THEME="af-magic"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux debian syntax-highlighting history-substring-search)
+plugins=(git tmux debian zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,7 +59,7 @@ alias g='git'
 ## Functions ##
 
 # cd and ls in one
-cl() { if [ -d "$1" ]; then cd "$1"; ls; else echo "bash: cl: '$1': Directory not found"; fi; }
+cl() { cd "$1" && ls }
 
 # mkdir && cd
 mcd() { mkdir -p "$@" && cd $_; }
@@ -70,9 +70,10 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 # find files
 function fname() { find . -iname "*$@*"; }
 
-# Search Google with elinks
+# Search Google/Oxford dict with elinks
 function url-encode() { setopt extendedglob; echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}" }
 function google() { elinks "http://www.google.com/search?q=`url-encode "${(j: :)@}"`" }
+function oxf() { elinks "http://oald8.oxfordlearnersdictionaries.com/dictionary/`url-encode "${(j: :)@}"`" }
 
 # Alt-s to insert sudo (Part 1/2)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
@@ -98,6 +99,7 @@ alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 alias tmux='nocorrect tmux'
 alias npm='nocorrect npm'
+alias which='nocorrect which'
 
 # ls
 alias ll='ls -alGh'
@@ -170,6 +172,9 @@ alias tw1='~/ws/bin/ttytter/tty2100 -rc=1'
 source ~/bin/z.sh
 alias z='nocorrect _z 2>&1' 
 
+# colorized cat (needs sudo easy_install Pygments)
+alias c='pygmentize -O style=monokai -f console256 -g'
+
 # mpd
 alias mpdx='mpd --no-daemon --verbose'
 
@@ -208,6 +213,12 @@ set -o vi  # Vi mode!
 # Go
 export GOPATH=$HOME/ws/go
 export PATH=$PATH:$GOPATH/bin
+
+# Haskell
+export PATH=$PATH:$HOME/.cabal/bin
+
+# Play
+export PATH=$PATH:$HOME/bin/play-2.2.0
 
 ## Key bindings ##
 
