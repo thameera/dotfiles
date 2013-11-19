@@ -1,44 +1,44 @@
 [user]
-	name = Thameera Senanayaka
-	email = thameera123@gmail.com
+  name = Thameera Senanayaka
+  email = thameera123@gmail.com
 
 [alias]
-	ci = commit
-	cia = commit -as
-	ciam = commit -asm
-	co = checkout
+  ci = commit
+  cia = commit -as
+  ciam = commit -asm
+  co = checkout
   nb = checkout -b  # checkout new branch
   cp = cherry-pick
-	rh = reset --hard
-	amend = commit --amend
-	aamend = commit -a --amend
-	head = log -n1
-	pull = pull --ff-only # no random merges, thank you very much
+  rh = reset --hard
+  amend = commit --amend
+  aamend = commit -a --amend
+  head = log -n1
+  pull = pull --ff-only # no random merges, thank you very much
 
-	## Log
-	lg = log --oneline --decorate --graph
-	lga = log --oneline --decorate --graph --all
-	log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+  ## Log
+  lg = log --oneline --decorate --graph
+  lga = log --oneline --decorate --graph --all
+  log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
 
-	## Lookup aliases
-	who = shortlog -s --
-	whorank = shortlog -sn --no-merges
+  ## Lookup aliases
+  who = shortlog -s --
+  whorank = shortlog -sn --no-merges
 
-	## Ignoring tracked files temporarily
-	ignore = update-index --assume-unchanged
-	unignore = update-index --no-assume-unchanged
-	ignored = !git ls-files -v | grep ^[a-z]
+  ## Ignoring tracked files temporarily
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep ^[a-z]
 
-	##  Misc
-	# Show the date of the first commit
-	log-first-date = !"git log --date-order --date=iso --pretty=\"format:%ad\" --reverse | head -1"
-	# Use whenever you're going to do sth drastic and risky
-	panic = !"tar cf ../git_panic_${PWD##*/}.tar.gz ."
-	# Show all my aliases
-	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+  ##  Misc
+  # Show the date of the first commit
+  log-first-date = !"git log --date-order --date=iso --pretty=\"format:%ad\" --reverse | head -1"
+  # Use whenever you're going to do sth drastic and risky
+  panic = !"tar cf ../git_panic_${PWD##*/}.tar.gz ."
+  # Show all my aliases
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
 [merge]
-	tool = meld
+  tool = meld
 
 [push]
   default = upstream
@@ -47,8 +47,8 @@
   autocrlf = false
   editor = vim
   filemode = false
-	excludesfile = /home/thameera/.gitignore
+  excludesfile = /home/thameera/.gitignore
 
 [color]
-	ui = auto
+  ui = auto
 
