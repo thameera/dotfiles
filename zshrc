@@ -167,6 +167,7 @@ alias tn='nocorrect tmux new -s'
 # ttytter
 alias tw='~/ws/bin/ttytter/tty2100'
 alias tw1='~/ws/bin/ttytter/tty2100 -rc=1'
+alias tw2='~/ws/bin/ttytter/tty2100 -rc=2'
 
 # rupa/z
 source ~/bin/z.sh
