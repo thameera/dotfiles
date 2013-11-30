@@ -1,4 +1,4 @@
 configs
 =======
 
-My configuration files for bash, git, vim etc
+My configuration files for git, vim, zsh etc
