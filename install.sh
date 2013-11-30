@@ -8,7 +8,7 @@
 
 dir=~/ws/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="ackrc bashrc beetsconfig gitconfig gitignore inputrc mpdconf tmux.conf vimrc xmobarrc xsessionrc zshenv zshrc"    # list of files/folders to symlink in homedir
+files="ackrc beetsconfig gitconfig gitignore inputrc mpdconf tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -26,10 +26,6 @@ for file in $files; do
     mv ~/.$file ~/.dotfiles_old/ 2>/dev/null
     ln -s $dir/$file ~/.$file
 done
-
-echo "Moving xmonad files"
-mv ~/.xmonad/xmonad.hs ~/.dotfiles_old/ 2>/dev/null
-ln -s $dir/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 
 echo "Setting up Vundle..."
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall
