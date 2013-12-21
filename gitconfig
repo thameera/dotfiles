@@ -10,10 +10,12 @@
   nb = checkout -b  # checkout new branch
   cp = cherry-pick
   rh = reset --hard
+  rb = rebase
   amend = commit --amend
   aamend = commit -a --amend
   head = log -n1
   pull = pull --ff-only # no random merges, thank you very much
+  pur = pull --rebase
 
   ## Log
   lg = log --oneline --decorate --graph
