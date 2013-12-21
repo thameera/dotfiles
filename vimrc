@@ -25,6 +25,7 @@ Bundle 'Raimondi/delimitMate'
 "Bundle 'SirVer/ultisnips'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'chilicuil/vim-sml-coursera'
+Bundle 'mikewest/vimroom'
 
 syntax on
 filetype plugin indent on
