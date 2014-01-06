@@ -61,6 +61,8 @@ alias g='git'
 # cd and ls in one
 cl() { cd "$1" && ls }
 
+server() { local PORT=${1:-9000}; python -m SimpleHTTPServer $PORT; }
+
 # mkdir && cd
 mcd() { mkdir -p "$@" && cd $_; }
 
