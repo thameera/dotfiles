@@ -66,6 +66,9 @@ set undofile
 "set undo directory. Having un~ files everywhere is messy
 set undodir=~/.tmp
 
+" Write with sudo
+cmap w!! w !sudo tee > /dev/null %
+
 "Tabs
 " Navigate tabs
 nnoremap <C-Left> :tabprevious<CR>
