@@ -39,11 +39,17 @@
   # Show all my aliases
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
+[branch]
+  autosetuprebase = always
+
 [merge]
   tool = meld
 
 [push]
   default = upstream
+
+[pull]
+  rebase = preserve
 
 [core]
   autocrlf = false
