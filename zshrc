@@ -106,6 +106,7 @@ alias which='nocorrect which'
 # ls
 alias ll='ls -alGh'
 alias lt='ls -altr'
+alias lg='ls -go'
 alias lsg='ll | grep'
 
 # vim
@@ -180,6 +181,8 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # mpd
 alias mpdx='mpd --no-daemon --verbose'
+
+alias play='mpg123 -C'
 
 alias showip='curl icanhazip.com'
 
