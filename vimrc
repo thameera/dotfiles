@@ -26,6 +26,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'chilicuil/vim-sml-coursera'
 Bundle 'mikewest/vimroom'
+Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
 
 syntax on
 filetype plugin indent on
@@ -60,6 +62,7 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 "case sensitivity
 set ignorecase
 set smartcase  " case sensitive if term contains uppercase letters
+set wildignorecase " case insensitive filename completion
 
 " preserve undo btvn sessions
 set undofile

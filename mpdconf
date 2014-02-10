@@ -4,7 +4,7 @@ db_file	            "~/.mpd/mpd.db"
 log_file	          "~/.mpd/mpd.log"
 pid_file	          "~/.mpd/pidfile"
 
-port                "6600"
+port                "6660"
 auto_update	        "yes"
 
 filesystem_charset	"UTF-8"
