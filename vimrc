@@ -28,6 +28,7 @@ Bundle 'chilicuil/vim-sml-coursera'
 Bundle 'mikewest/vimroom'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
+Bundle 'rking/ag.vim'
 
 syntax on
 filetype plugin indent on
@@ -48,10 +49,15 @@ set shiftwidth=2    " no. of spaces for step in autoindent
 " Exception for python, sh, cpp files
 au FileType python,sh,c,cpp,h set tabstop=4 shiftwidth=4 softtabstop=4
 
+au FileType python set foldmethod=indent
+
 set tabpagemax=20
 
 " Turn mouse on in normal mode
 set mouse=n
+
+" Swap files directory
+set directory=~/tmp
 
 "Search
 " highlight search results
@@ -100,6 +106,9 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guif
 
 " Ack
 nnoremap <leader>a :Ack 
+
+" CtrlP
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " NERDTree
 "autocmd VimEnter * if !argc() | Startify | NERDTree | execute "normal \<c-w>w" | endif " NERDTree + Startify
