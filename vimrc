@@ -29,6 +29,8 @@ Bundle 'mikewest/vimroom'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 Bundle 'rking/ag.vim'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'groenewege/vim-less'
 
 syntax on
 filetype plugin indent on
@@ -99,7 +101,9 @@ nmap <Leader>q :q<CR>
 highlight Normal ctermbg=235
 
 "Line numbers
-set number
+set nu
+set rnu  " relative line numbers
+" Toggle line numbers
 nmap <C-N><C-N> :set invnumber<CR>
 " Set a better color to line numbers
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE

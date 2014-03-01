@@ -223,6 +223,9 @@ export PATH=$PATH:$GOPATH/bin
 # Haskell
 export PATH=$PATH:$HOME/.cabal/bin
 
+# Scala
+export PATH=$PATH:$HOME/bin/scala
+
 # Play
 export PATH=$PATH:$HOME/bin/play-2.2.0
 
