@@ -182,7 +182,7 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 # mpd
 alias mpdx='mpd --no-daemon --verbose'
 
-alias play='mpg123 -C'
+alias playy='mpg123 -C'
 
 alias showip='curl icanhazip.com'
 
@@ -228,6 +228,17 @@ export PATH=$PATH:$HOME/bin/scala
 
 # Play
 export PATH=$PATH:$HOME/bin/play-2.2.0
+
+## zsh-autosuggestions
+
+source ~/.zsh-autosuggestions/autosuggestions.zsh
+# Enable autosuggestions automatically
+zle-line-init() {
+    zle autosuggest-start
+}
+zle -N zle-line-init
+# Accept suggestions without leaving insert mode
+bindkey '^f' vi-forward-word
 
 ## Key bindings ##
 
