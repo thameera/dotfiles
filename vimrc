@@ -15,10 +15,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'Lokaltog/powerline'
 Bundle 'kien/rainbow_parentheses.vim'
-"Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-sensible'
-"Bundle 'ervandew/supertab'
 Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
@@ -47,10 +45,12 @@ set smarttab        " smart tabulation n backspace
 
 set autoindent
 set smartindent
+set ci   " copyindent
+set pi   " preserveindent
 set shiftwidth=2    " no. of spaces for step in autoindent
 
 " Exception for python, sh, cpp files
-au FileType python,sh,c,cpp,h set tabstop=4 shiftwidth=4 softtabstop=4
+au FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
 
 au FileType python set foldmethod=indent
 
@@ -161,14 +161,8 @@ let g:startify_custom_header = map(split(system('fortune -as | cowsay'), '\n'), 
 " open definition in a new tab:
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> 
 
-"taglist
-"map <F4> :TlistToggle<cr>
-
 "Powerline
 "python from powerline.bindings.vim import source_plugin; source_plugin()
-
-"Tagbar
-nmap <F6> :TagbarToggle<CR>
 
 "Always on rainbow parentheses 
 au VimEnter * RainbowParenthesesToggle
