@@ -89,7 +89,7 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 " new tab
-nnoremap <leader>tt :tabnew<CR>
+nnoremap <leader>tt :tabnew
 " Use <Leader>tl to move to last viewed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>

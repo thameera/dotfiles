@@ -227,7 +227,7 @@ export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$PATH:$HOME/bin/scala
 
 # Play
-export PATH=$PATH:$HOME/bin/play-2.2.0
+export PATH=$PATH:$HOME/bin/play-2.2.2
 
 ## zsh-autosuggestions
 
@@ -238,7 +238,7 @@ zle-line-init() {
 }
 zle -N zle-line-init
 # Accept suggestions without leaving insert mode
-bindkey '^f' vi-forward-word
+bindkey '^ ' vi-forward-word
 
 ## Key bindings ##
 
