@@ -259,3 +259,7 @@ bindkey "^[s" insert-sudo
 
 ## /Key bindings ##
 
+# taskwarrior
+alias t="task"
+alias tt="clear; task"
+

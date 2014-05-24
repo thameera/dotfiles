@@ -59,6 +59,21 @@ set tabpagemax=20
 " Turn mouse on in normal mode
 set mouse=n
 
+" Shortcut for desktop clipboard
+nnoremap + "+
+
+" Indent with Tab/Shift+Tab in visual mode
+xmap <Tab> >
+xmap <S-Tab> <
+
+" Delete to black hole register with X
+noremap X "_d
+nnoremap XX "_dd
+
+" Edit/reload vimrc
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 " Swap files directory
 set directory=~/tmp
 
@@ -73,6 +88,8 @@ set ignorecase
 set smartcase  " case sensitive if term contains uppercase letters
 set wildignorecase " case insensitive filename completion
 
+set wildignore=*.pyc,*.o,*.lo,*.la,*.exe,*.swp,*.db,*.bak,*.old,*.dat,*~,~*
+
 " preserve undo btvn sessions
 set undofile
 "set undo directory. Having un~ files everywhere is messy
@@ -80,6 +97,9 @@ set undodir=~/.tmp
 
 " Write with sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" Auto-save on buffer lose focus
+:au BufLeave,FocusLost * silent! update
 
 "Tabs
 " Navigate tabs
@@ -94,6 +114,10 @@ nnoremap <leader>tt :tabnew
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 autocmd TabLeave * let g:lasttab = tabpagenr()
+
+"Windows
+set splitbelow
+set splitright
 
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
