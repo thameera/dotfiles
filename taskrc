@@ -29,4 +29,24 @@ data.location=/home/thameera/.task
 urgency.user.project.aeas.coefficient=1
 urgency.annotations.coefficient=0
 
+urgency.user.tag.p1.coefficient=1
+urgency.user.tag.p2.coefficient=2
+urgency.user.tag.m1.coefficient=-1
+urgency.user.tag.m2.coefficient=-2
+
 confirmation=off
+
+# Some report formats from here: https://github.com/lightningdb/dotfiles/blob/master/taskrc
+
+# tasks done yesterday
+report.yesterday.description=Tasks done yesterday
+report.yesterday.columns=project,end,tags,description
+report.yesterday.filter=end.after:yesterday end.before:today status:completed
+report.yesterday.sort=project+
+
+# tasks done today
+report.today.description=Tasks done today
+report.today.columns=project,end,status,tags,description
+report.today.filter=end.after:today end.before:tomorrow
+report.today.sort=project+
+

@@ -21,8 +21,8 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
 "Bundle 'SirVer/ultisnips'
-Bundle 'suan/vim-instant-markdown'
-Bundle 'chilicuil/vim-sml-coursera'
+"Bundle 'suan/vim-instant-markdown'
+"Bundle 'chilicuil/vim-sml-coursera'
 Bundle 'mikewest/vimroom'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
@@ -30,6 +30,10 @@ Bundle 'rking/ag.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'groenewege/vim-less'
 Bundle 'Shougo/neocomplete.vim'
+Bundle 'tpope/vim-dispatch'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'sheerun/vim-polyglot'
+Bundle 'pangloss/vim-javascript'
 
 syntax on
 filetype plugin indent on
@@ -51,8 +55,6 @@ set shiftwidth=2    " no. of spaces for step in autoindent
 
 " Exception for python, sh, cpp files
 au FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
-
-au FileType python set foldmethod=indent
 
 set tabpagemax=20
 
