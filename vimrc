@@ -32,7 +32,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'tpope/vim-dispatch'
 "Bundle 'Valloric/YouCompleteMe'
-Bundle 'sheerun/vim-polyglot'
+"Bundle 'sheerun/vim-polyglot'
 Bundle 'pangloss/vim-javascript'
 
 syntax on
@@ -79,6 +79,10 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " Swap files directory
 set directory=~/tmp
 
+" Insert mode calculator
+" Press <C-A> after typing an operation
+inoremap <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
 "Search
 " highlight search results
 set hlsearch
@@ -103,10 +107,11 @@ cmap w!! w !sudo tee > /dev/null %
 " Auto-save on buffer lose focus
 :au BufLeave,FocusLost * silent! update
 
+" Left/right arrow keys to navigate tabs
+nnoremap <silent> <Left> :tabprevious<CR>
+nnoremap <silent> <Right> :tabnext<CR>
+
 "Tabs
-" Navigate tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
 " Move tabs
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>

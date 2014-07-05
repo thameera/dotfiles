@@ -214,6 +214,11 @@ if [ -e ~/.secrets ]; then
   source ~/.secrets
 fi
 
+# Swap capslock n esc keys
+if [ -e ~/.speedswapper ]; then
+  xmodmap ~/.speedswapper
+fi
+
 set -o vi  # Vi mode!
 
 # Go
