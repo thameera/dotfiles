@@ -8,7 +8,7 @@
 
 dir=~/ws/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="ackrc beetsconfig gitconfig gitignore inputrc mpdconf tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
+files="ackrc beetsconfig gitconfig gitignore inputrc mpdconf speedswapper taskrc tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 

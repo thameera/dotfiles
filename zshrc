@@ -262,6 +262,11 @@ bindkey "^[[B" history-search-forward
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
 
+# Esc-V to open vim for editing command
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 ## /Key bindings ##
 
 # taskwarrior

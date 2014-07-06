@@ -9,7 +9,7 @@
 
 dir=~/ws/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="ackrc gitconfig gitignore inputrc tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
+files="ackrc gitconfig gitignore inputrc speedswapper tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
