@@ -161,7 +161,6 @@ alias tmux='TERM=xterm-256color tmux'
 #alias printcolors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolour${i}\n"; done'
 alias tc='tmux show-buffer'
 alias tmli='tmux list-sessions'
-alias t='tmux'
 alias ta='nocorrect tmux attach -t'
 alias tk='nocorrect tmux kill-session -t'
 alias tl='tmux ls'
@@ -311,4 +310,11 @@ zle -N zle-keymap-select
 zle -N zle-line-init
 zle -N zle-line-finish
 ### /Vi mode status indicator ###
+
+
+# Gradle
+alias gr="./gradlew"
+alias grr="./gradlew jettyRunWar"
+export GRADLE_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=9999,server=y,suspend=n"
+export RUN_ENVIRONMENT='dev'
 

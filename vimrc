@@ -17,7 +17,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-sensible'
-Bundle 'mhinz/vim-startify'
+"Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
 "Bundle 'SirVer/ultisnips'
@@ -34,6 +34,7 @@ Bundle 'tpope/vim-dispatch'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'sheerun/vim-polyglot'
 Bundle 'pangloss/vim-javascript'
+Bundle 'fholgado/minibufexpl.vim'
 
 syntax on
 filetype plugin indent on
@@ -104,12 +105,12 @@ set undodir=~/.tmp
 " Write with sudo
 cmap w!! w !sudo tee > /dev/null %
 
+"Run q macro with Q
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+
 " Auto-save on buffer lose focus
 :au BufLeave,FocusLost * silent! update
-
-" Left/right arrow keys to navigate tabs
-nnoremap <silent> <Left> :tabprevious<CR>
-nnoremap <silent> <Right> :tabnext<CR>
 
 "Tabs
 " Move tabs
@@ -117,6 +118,9 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 " new tab
 nnoremap <leader>tt :tabnew
+" Left/right arrow keys to navigate tabs
+nnoremap <silent> <Left> :tabprevious<CR>
+nnoremap <silent> <Right> :tabnext<CR>
 " Use <Leader>tl to move to last viewed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
