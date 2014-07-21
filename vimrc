@@ -7,34 +7,39 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'mileszs/ack.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'Lokaltog/powerline'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'tpope/vim-obsession'
-Bundle 'tpope/vim-sensible'
-"Bundle 'mhinz/vim-startify'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Raimondi/delimitMate'
-"Bundle 'SirVer/ultisnips'
-"Bundle 'suan/vim-instant-markdown'
-"Bundle 'chilicuil/vim-sml-coursera'
-Bundle 'mikewest/vimroom'
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
-Bundle 'rking/ag.vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'groenewege/vim-less'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'tpope/vim-dispatch'
-"Bundle 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-sensible'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-obsession'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'ajh17/VimCompletesMe'
+
+Plugin 'digitaltoad/vim-jade'
+Plugin 'pangloss/vim-javascript'
+
+" Previously used plugins
+"Bundle 'scrooloose/nerdtree'
+""Bundle 'Lokaltog/powerline'
+""Bundle 'mhinz/vim-startify'
+"Bundle 'Raimondi/delimitMate'
+""Bundle 'SirVer/ultisnips'
+""Bundle 'suan/vim-instant-markdown'
+""Bundle 'chilicuil/vim-sml-coursera'
+"Bundle 'mikewest/vimroom'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'gregsexton/gitv'
+"Bundle 'rking/ag.vim'
+"Bundle 'groenewege/vim-less'
+"Bundle 'Shougo/neocomplete.vim'
+"Bundle 'tpope/vim-dispatch'
+""Bundle 'Valloric/YouCompleteMe'
 "Bundle 'sheerun/vim-polyglot'
-Bundle 'pangloss/vim-javascript'
-Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'mattn/flappyvird-vim'
 
 syntax on
 filetype plugin indent on
@@ -150,54 +155,14 @@ nnoremap <leader>a :Ack
 " CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-" Neocomplete
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
 
 " NERDTree
 "autocmd VimEnter * if !argc() | Startify | NERDTree | execute "normal \<c-w>w" | endif " NERDTree + Startify
-map <C-e> :NERDTreeToggle<CR>
-
-" startify
-let g:startify_custom_header = map(split(system('fortune -as | cowsay'), '\n'), '" ". v:val') + ['']
+"map <C-e> :NERDTreeToggle<CR>
 
 "ctags related
 " open definition in a new tab:
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> 
-
-"Powerline
-"python from powerline.bindings.vim import source_plugin; source_plugin()
 
 "Always on rainbow parentheses 
 au VimEnter * RainbowParenthesesToggle
