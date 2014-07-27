@@ -20,6 +20,7 @@ Plugin 'ajh17/VimCompletesMe'
 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mattn/emmet-vim'
 
 " Previously used plugins
 "Bundle 'scrooloose/nerdtree'
@@ -169,4 +170,20 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" emmet
+"Enable only for html/css files
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" Abbreviations "
+function JSAbbrevs()
+  iab clog console.log('');<Esc>2hi
+endfunction
+
+augroup Abbrevs
+  autocmd!
+  au BufNewFile,BufRead *.js,*.html,*.html call JSAbbrevs()
+augroup END
+" /Abbreviations "
 

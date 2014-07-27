@@ -39,10 +39,10 @@ confirmation=off
 # Some report formats from here: https://github.com/lightningdb/dotfiles/blob/master/taskrc
 
 # tasks done yesterday
-report.yesterday.description=Tasks done yesterday
-report.yesterday.columns=project,end,tags,description
-report.yesterday.filter=end.after:yesterday end.before:today status:completed
-report.yesterday.sort=project+
+report.yday.description=Tasks done yesterday
+report.yday.columns=project,end,tags,description
+report.yday.filter=end.after:yesterday end.before:today status:completed
+report.yday.sort=project+
 
 # tasks done today
 report.today.description=Tasks done today
