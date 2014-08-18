@@ -17,6 +17,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ajh17/VimCompletesMe'
+Plugin 'terryma/vim-expand-region'
 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
@@ -79,6 +80,19 @@ xmap <S-Tab> <
 noremap X "_d
 nnoremap XX "_dd
 
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+
+" Moar copy paste mappings
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+imap <C-V> <C-R>+
+
+" Select the text just pasted
+noremap gV `[v`]
+
 " Edit/reload vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -136,9 +150,6 @@ autocmd TabLeave * let g:lasttab = tabpagenr()
 set splitbelow
 set splitright
 
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
-
 "Background color
 highlight Normal ctermbg=235
 
@@ -175,6 +186,10 @@ au Syntax * RainbowParenthesesLoadBraces
 "Enable only for html/css files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Abbreviations "
 function JSAbbrevs()

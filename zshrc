@@ -213,11 +213,6 @@ if [ -e ~/.secrets ]; then
   source ~/.secrets
 fi
 
-# Swap capslock n esc keys
-if [ -e ~/.speedswapper ]; then
-  xmodmap ~/.speedswapper
-fi
-
 set -o vi  # Vi mode!
 
 # Go
@@ -312,9 +307,24 @@ zle -N zle-line-finish
 ### /Vi mode status indicator ###
 
 
+# Use C-Z to jump back to vim after a C-Z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+
 # Gradle
 alias gr="./gradlew"
 alias grr="./gradlew jettyRunWar"
 export GRADLE_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=9999,server=y,suspend=n"
 export RUN_ENVIRONMENT='dev'
 
+#LD_LIBRARY_PATH=/usr/lib/i386-linux-gnu/ /usr/bin/skype
