@@ -72,6 +72,9 @@ set mouse=n
 " Shortcut for desktop clipboard
 nnoremap + "+
 
+" Map \ to , coz , was mapped to be the Leader
+nnoremap \ ,
+
 " Indent with Tab/Shift+Tab in visual mode
 xmap <Tab> >
 xmap <S-Tab> <
@@ -196,9 +199,16 @@ function JSAbbrevs()
   iab clog console.log('');<Esc>2hi
 endfunction
 
+function CppAbbrevs()
+    iab scn std::cin >>
+    iab sct std::cout <<
+    iab sen std::endl
+endfunction
+
 augroup Abbrevs
   autocmd!
   au BufNewFile,BufRead *.js,*.html,*.html call JSAbbrevs()
+  au BufNewFile,BufRead *.cpp,*.h call CppAbbrevs()
 augroup END
 " /Abbreviations "
 
