@@ -18,6 +18,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'terryma/vim-expand-region'
+Plugin 'tpope/vim-surround'
 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
@@ -165,7 +166,7 @@ nmap <C-N><C-N> :set invnumber<CR>
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 
 " Ack
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack! 
 
 " CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
