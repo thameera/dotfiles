@@ -45,7 +45,8 @@ plugins=(git tmux debian zsh-syntax-highlighting history-substring-search mosh)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:/home/thameera/bin/phonegap-android/bin:/home/thameera/ws/bin:/home/thameera/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/thameera/ws/bin
+#export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:/home/thameera/bin/phonegap-android/bin:/home/thameera/ws/bin:/home/thameera/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/thameera/ws/bin
+export PATH=$PATH:/home/thameera/ws/bin:/home/thameera/bin
 
 export LESS="-aFiRX"
 export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
@@ -175,6 +176,9 @@ alias tw2='~/ws/bin/ttytter/tty2100 -rc=2'
 source ~/bin/z.sh
 alias z='nocorrect _z 2>&1' 
 
+# rupa/v
+alias vl='v -l'
+
 # colorized cat (needs sudo easy_install Pygments)
 alias c='pygmentize -O style=monokai -f console256 -g'
 
@@ -227,6 +231,9 @@ export PATH=$PATH:$HOME/bin/scala
 
 # Play
 export PATH=$PATH:$HOME/bin/play-2.2.2
+
+# Heroku
+export PATH=$PATH:/usr/local/heroku/bin
 
 ## zsh-autosuggestions
 
@@ -320,5 +327,3 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-
-#LD_LIBRARY_PATH=/usr/lib/i386-linux-gnu/ /usr/bin/skype
