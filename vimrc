@@ -19,6 +19,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-surround'
+Plugin 'richsoni/vim-ecliptic'
 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
