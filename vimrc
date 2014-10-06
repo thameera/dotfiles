@@ -156,7 +156,8 @@ set splitbelow
 set splitright
 
 "Background color
-highlight Normal ctermbg=235
+"highlight Normal ctermbg=235
+colorscheme darkblue
 
 "Line numbers
 set nu
@@ -164,13 +165,16 @@ set rnu  " relative line numbers
 " Toggle line numbers
 nmap <C-N><C-N> :set invnumber<CR>
 " Set a better color to line numbers
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
+"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 
 " Ack
 nnoremap <leader>a :Ack! 
 
 " CtrlP
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\vnode_modules\|DS_Store\|\.git|\.svn|\|build',
+  \ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
+  \ }
 
 
 " NERDTree
