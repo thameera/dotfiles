@@ -81,6 +81,9 @@ function oxf() { elinks "http://oald8.oxfordlearnersdictionaries.com/dictionary/
 # Alt-s to insert sudo (Part 1/2)
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 
+# Usage: currency 100 jpy lkr
+currency() { wget -qO- "http://www.google.com/finance/converter?a=$1&from=$2&to=$3&hl=es" |  sed '/res/!d;s/<[^>]*>//g'; }
+
 ## /Functions ##
 
 # Global aliases
@@ -95,6 +98,7 @@ alias -g T='| tail'
 alias -g L='| less'
 alias -g G='| grep'
 alias -g dot='~/ws/dotfiles'
+alias -g N='; notify-send "End command"'
 
 # nocorrect
 alias mv='nocorrect mv'
@@ -105,7 +109,8 @@ alias npm='nocorrect npm'
 alias which='nocorrect which'
 
 # ls
-alias ll='ls -alGh'
+alias ls='ls -F --color=auto --group-directories-first'
+alias ll='ls -lhFSr --color=auto --group-directories-first'
 alias lt='ls -altr'
 alias lg='ls -go'
 alias lsg='ll | grep'
@@ -187,7 +192,7 @@ alias mpdx='mpd --no-daemon --verbose'
 
 alias playy='mpg123 -C'
 
-alias showip='curl icanhazip.com'
+alias showip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # rename JPGs in dir to random sha values
 alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cut -f1 -d" ").jpg; done'
@@ -199,6 +204,7 @@ alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "stat
 # Openbox
 alias or='openbox --reconfigure'
 
+alias yt='youtube-dl -i'
 
 # Suffix aliases
 alias -s cpp=vim
@@ -218,6 +224,19 @@ if [ -e ~/.secrets ]; then
 fi
 
 set -o vi  # Vi mode!
+
+# man page colorization
+export GROFF_NO_SGR=1
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m'   \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m'  \
+    LESS_TERMCAP_me=$'\E[0m'           \
+    LESS_TERMCAP_se=$'\E[0m'           \
+    LESS_TERMCAP_so=$'\E[38;5;246m'    \
+    LESS_TERMCAP_ue=$'\E[0m'           \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
 
 # Go
 export GOPATH=$HOME/ws/go
