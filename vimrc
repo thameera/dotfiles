@@ -159,6 +159,9 @@ autocmd TabLeave * let g:lasttab = tabpagenr()
 set splitbelow
 set splitright
 
+"netrw
+let g:netrw_liststyle=3  " nerd-tree like
+
 "Background color
 "highlight Normal ctermbg=235
 colorscheme darkblue
