@@ -31,3 +31,7 @@ echo "Setting up Vundle..."
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall
 echo "...done"
 
+# zsh-autosuggestions
+echo "Cloning zsh-autosuggestions..."
+git clone git://github.com/tarruda/zsh-autosuggestions ~/.zsh-autosuggestions
+

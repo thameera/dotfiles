@@ -35,3 +35,7 @@ if [[ "$REPLY" == [yY] ]]; then
     echo "...done"
 fi
 
+# zsh-autosuggestions
+echo "Cloning zsh-autosuggestions"
+git clone git://github.com/tarruda/zsh-autosuggestions ~/.zsh-autosuggestions
+
