@@ -45,7 +45,7 @@ plugins=(git tmux debian zsh-syntax-highlighting history-substring-search mosh)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-#export PATH=$PATH:/usr/local/heroku/bin:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/tools:/home/thameera/bin/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:/home/thameera/bin/phonegap-android/bin:/home/thameera/ws/bin:/home/thameera/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/thameera/ws/bin
+
 export PATH=$PATH:/home/thameera/ws/bin:/home/thameera/bin
 
 export LESS="-aFiRX"
@@ -253,6 +253,12 @@ export PATH=$PATH:$HOME/bin/play-2.2.2
 
 # Heroku
 export PATH=$PATH:/usr/local/heroku/bin
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtenv
+export PROJECT_HOME=$HOME/ws
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 ## zsh-autosuggestions
 
