@@ -20,6 +20,8 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-surround'
 Plugin 'richsoni/vim-ecliptic'
+Plugin 'esneider/YUNOcommit.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
@@ -179,7 +181,7 @@ nnoremap <leader>a :Ack!
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\vnode_modules\|DS_Store\|\.git|\.svn|\|build',
+  \ 'dir':  '\v[\/](tmp|node_modules|build|git|svn)$',
   \ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
   \ }
 
