@@ -48,6 +48,11 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:/home/thameera/ws/bin:/home/thameera/bin
 
+# Give priority to Gnu coreutils in OS X
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+fi
+
 export LESS="-aFiRX"
 export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
 

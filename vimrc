@@ -67,7 +67,7 @@ set shiftwidth=2    " no. of spaces for step in autoindent
 
 "breakindent ftw
 set breakindent
-set showbreak=↪
+set showbreak=>>
 
 " Exception for python, sh, cpp files
 au FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
