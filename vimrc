@@ -22,6 +22,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'richsoni/vim-ecliptic'
 Plugin 'esneider/YUNOcommit.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
@@ -143,15 +144,17 @@ vnoremap Q :norm @q<cr>
 " Auto-save on buffer lose focus
 :au BufLeave,FocusLost * silent! update
 
+"Buffers
+" Left/right arrow keys to navigate buffers
+nnoremap <silent> <Left> :bp<CR>
+nnoremap <silent> <Right> :bn<CR>
+
 "Tabs
 " Move tabs
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 " new tab
 nnoremap <leader>tt :tabnew
-" Left/right arrow keys to navigate tabs
-nnoremap <silent> <Left> :tabprevious<CR>
-nnoremap <silent> <Right> :tabnext<CR>
 " Use <Leader>tl to move to last viewed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
@@ -204,6 +207,10 @@ au Syntax * RainbowParenthesesLoadBraces
 "Enable only for html/css files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" vim-tmux-navigator
+" bcoz <C-k> is bound as tmux key
+nnoremap <silent> <C-i> :TmuxNavigateUp<cr>
 
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
