@@ -5,7 +5,11 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="afowler"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ZSH_THEME="wild-cherry"
+else
+  ZSH_THEME="afowler"
+fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -46,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$PATH:/home/thameera/ws/bin:/home/thameera/bin
+export PATH=$PATH:$HOME/ws/bin:$HOME/bin
 
 # Give priority to Gnu coreutils in OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
