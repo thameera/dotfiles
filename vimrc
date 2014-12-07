@@ -22,7 +22,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'richsoni/vim-ecliptic'
 Plugin 'esneider/YUNOcommit.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-abolish'
 
 Plugin 'digitaltoad/vim-jade'
@@ -208,10 +207,6 @@ au Syntax * RainbowParenthesesLoadBraces
 "Enable only for html/css files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-
-" vim-tmux-navigator
-" bcoz <C-k> is bound as tmux key
-nnoremap <silent> <C-i> :TmuxNavigateUp<cr>
 
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
