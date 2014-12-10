@@ -214,7 +214,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " Abbreviations "
 function JSAbbrevs()
-  iab clog console.log('');<Esc>2hi
+  iab clog console.log();<Esc>hi
 endfunction
 
 function CppAbbrevs()
