@@ -20,7 +20,6 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-surround'
 Plugin 'richsoni/vim-ecliptic'
-Plugin 'esneider/YUNOcommit.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-abolish'
 
