@@ -186,6 +186,11 @@ alias tw='~/ws/bin/ttytter/tty2100'
 alias tw1='~/ws/bin/ttytter/tty2100 -rc=1'
 alias tw2='~/ws/bin/ttytter/tty2100 -rc=2'
 
+# nwjs
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias nw='~/Applications/nwjs.app/Contents/MacOS/nwjs'
+fi
+
 # rupa/z
 source ~/bin/z.sh
 alias z='nocorrect _z 2>&1' 
