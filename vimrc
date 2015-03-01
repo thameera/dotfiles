@@ -23,6 +23,16 @@ Plugin 'richsoni/vim-ecliptic'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-abolish'
 
+" Reqd for vim-easytags
+Plugin 'xolox/vim-misc'
+
+" :UpdateTags to create tags file
+" Ctrl+] to jump to definition
+Plugin 'xolox/vim-easytags'
+
+" ,tb to show tagbar (mapped below)
+Plugin 'majutsushi/tagbar'
+
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
@@ -168,7 +178,7 @@ let g:netrw_liststyle=3  " nerd-tree like
 
 "Background color
 "highlight Normal ctermbg=235
-colorscheme darkblue
+"colorscheme darkblue
 
 "Line numbers
 set nu
@@ -191,10 +201,6 @@ let g:ctrlp_custom_ignore = {
 " NERDTree
 "autocmd VimEnter * if !argc() | Startify | NERDTree | execute "normal \<c-w>w" | endif " NERDTree + Startify
 "map <C-e> :NERDTreeToggle<CR>
-
-"ctags related
-" open definition in a new tab:
-"map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> 
 
 "Always on rainbow parentheses 
 au VimEnter * RainbowParenthesesToggle
@@ -252,4 +258,18 @@ function! s:AckMotion(type) abort
   let @@ = reg_save
 endfunction
 " /Ack motions
+
+" easytags
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" tagbar
+" Open/close tagbar with ,tb
+nmap <silent> <leader>tb :TagbarToggle<CR>
 
