@@ -36,6 +36,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
+Plugin 'gregsexton/MatchTag'
 
 " Previously used plugins
 "Bundle 'scrooloose/nerdtree'
@@ -120,6 +121,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Swap files directory
 set directory=~/tmp
+set backupdir=~/tmp
 
 " Insert mode calculator
 " Press <C-A> after typing an operation
