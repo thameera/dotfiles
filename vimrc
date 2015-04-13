@@ -37,6 +37,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'mxw/vim-jsx'
 
 " Previously used plugins
 "Bundle 'scrooloose/nerdtree'
@@ -274,4 +275,7 @@ let g:easytags_suppress_ctags_warning = 1
 " tagbar
 " Open/close tagbar with ,tb
 nmap <silent> <leader>tb :TagbarToggle<CR>
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
