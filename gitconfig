@@ -59,7 +59,7 @@
   autocrlf = false
   editor = vim
   filemode = false
-  excludesfile = /home/thameera/.gitignore
+  excludesfile = ~/.gitignore
 
 [color]
   ui = auto
