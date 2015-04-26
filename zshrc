@@ -191,6 +191,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias nw='~/Applications/nwjs.app/Contents/MacOS/nwjs'
 fi
 
+# caffeinate
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias caff='caffeinate -disu'
+fi
+
 # rupa/z
 source ~/bin/z.sh
 alias z='nocorrect _z 2>&1' 
