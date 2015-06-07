@@ -195,10 +195,20 @@ nmap <C-N><C-N> :set invnumber<CR>
 nnoremap <leader>a :Ack! 
 
 " CtrlP
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](tmp|node_modules|build|git|svn)$',
-  \ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
-  \ }
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir':  '\v[\/](tmp|node_modules|build|git|svn)$',
+  "\ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
+  "\ }
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 
 " NERDTree
