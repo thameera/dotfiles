@@ -82,7 +82,8 @@ set breakindent
 set showbreak=>>
 
 " Exception for python, sh, cpp files
-au FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
+au! FileType python,sh,c,cpp,h,java set tabstop=4 shiftwidth=4 softtabstop=4
+au! FileType python setl nosmartindent
 
 set tabpagemax=20
 
