@@ -23,6 +23,11 @@ Plugin 'richsoni/vim-ecliptic'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-abolish'
 
+" <Leader>k to mark a word
+" n and N to navigate
+" <Leader>K to clear all words
+Plugin 'vasconcelloslf/vim-interestingwords'
+
 " Reqd for vim-easytags
 Plugin 'xolox/vim-misc'
 
@@ -38,6 +43,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'mxw/vim-jsx'
+
+" vim-go
+" Formats source on save
+" :GoImport <path>
+" :GoDoc fmt
+" :GoDoc fmt Printf
+Plugin 'fatih/vim-go'
 
 " Previously used plugins
 "Bundle 'scrooloose/nerdtree'
