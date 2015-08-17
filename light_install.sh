@@ -38,5 +38,5 @@ fi
 
 # zsh-autosuggestions
 echo "Cloning zsh-autosuggestions"
-git clone git://github.com/tarruda/zsh-autosuggestions ~/.zsh-autosuggestions
+git clone --depth 1 git://github.com/tarruda/zsh-autosuggestions ~/.zsh-autosuggestions
 
