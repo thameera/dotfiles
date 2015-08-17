@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'richsoni/vim-ecliptic'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-abolish'
+Plug 'scrooloose/nerdtree',                     {'on': ['NERDTree', 'NERDTreeToggle']}
 
 " <Leader>k to mark a word
 " n and N to navigate
@@ -35,7 +36,7 @@ Plug 'majutsushi/tagbar'
 
 Plug 'digitaltoad/vim-jade',                    {'for': 'jade'}
 Plug 'pangloss/vim-javascript'
-Plug 'mattn/emmet-vim',                         {'for': 'html'}
+Plug 'mattn/emmet-vim',                         {'for': ['html', 'css']}
 Plug 'gregsexton/MatchTag'
 Plug 'mxw/vim-jsx'
 
@@ -47,7 +48,6 @@ Plug 'mxw/vim-jsx'
 Plug 'fatih/vim-go',                            {'for': 'go'}
 
 " Previously used plugins
-"Bundle 'scrooloose/nerdtree'
 ""Bundle 'Lokaltog/powerline'
 ""Bundle 'mhinz/vim-startify'
 "Bundle 'Raimondi/delimitMate'
@@ -116,13 +116,6 @@ nnoremap XX "_dd
 
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-
-" Moar copy paste mappings
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-imap <C-V> <C-R>+
 
 " Select the text just pasted
 noremap gV `[v`]
@@ -225,8 +218,9 @@ endif
 
 
 " NERDTree
-"autocmd VimEnter * if !argc() | Startify | NERDTree | execute "normal \<c-w>w" | endif " NERDTree + Startify
-"map <C-e> :NERDTreeToggle<CR>
+map <Leader>te :NERDTreeToggle<CR>
+" Close vim if if the only open window is NERDTree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "Always on rainbow parentheses 
 au VimEnter * RainbowParenthesesToggle
