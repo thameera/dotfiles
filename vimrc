@@ -1,55 +1,50 @@
 let mapleader = ","
 
-" For vundle
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/vundle'
-
-Plugin 'tpope/vim-sensible'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-obsession'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'terryma/vim-expand-region'
-Plugin 'tpope/vim-surround'
-Plugin 'richsoni/vim-ecliptic'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'tpope/vim-abolish'
+Plug 'tpope/vim-sensible'
+Plug 'kien/ctrlp.vim',                          {'on': 'CtrlP'}
+Plug 'scrooloose/nerdcommenter'
+Plug 'mileszs/ack.vim',                         {'on': 'Ack'}
+Plug 'tpope/vim-obsession',                     {'on': ['Obsess', 'Obsession']}
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'ajh17/VimCompletesMe'
+Plug 'terryma/vim-expand-region'
+Plug 'tpope/vim-surround'
+Plug 'richsoni/vim-ecliptic'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'tpope/vim-abolish'
 
 " <Leader>k to mark a word
 " n and N to navigate
 " <Leader>K to clear all words
-Plugin 'vasconcelloslf/vim-interestingwords'
+Plug 'vasconcelloslf/vim-interestingwords'
 
 " Reqd for vim-easytags
-Plugin 'xolox/vim-misc'
+Plug 'xolox/vim-misc'
 
 " :UpdateTags to create tags file
 " Ctrl+] to jump to definition
-Plugin 'xolox/vim-easytags'
+Plug 'xolox/vim-easytags'
 
 " ,tb to show tagbar (mapped below)
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
-Plugin 'digitaltoad/vim-jade'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mattn/emmet-vim'
-Plugin 'gregsexton/MatchTag'
-Plugin 'mxw/vim-jsx'
+Plug 'digitaltoad/vim-jade',                    {'for': 'jade'}
+Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim',                         {'for': 'html'}
+Plug 'gregsexton/MatchTag'
+Plug 'mxw/vim-jsx'
 
 " vim-go
 " Formats source on save
 " :GoImport <path>
 " :GoDoc fmt
 " :GoDoc fmt Printf
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go',                            {'for': 'go'}
 
 " Previously used plugins
 "Bundle 'scrooloose/nerdtree'
@@ -70,6 +65,9 @@ Plugin 'fatih/vim-go'
 "Bundle 'sheerun/vim-polyglot'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'mattn/flappyvird-vim'
+
+" Add plugins to &runtimepath
+call plug#end()
 
 syntax on
 filetype plugin indent on
@@ -208,6 +206,8 @@ nmap <C-N><C-N> :set invnumber<CR>
 nnoremap <leader>a :Ack! 
 
 " CtrlP
+" Load CtrlP on c-p
+nnoremap <c-p> :CtrlP<CR>
 "let g:ctrlp_custom_ignore = {
   "\ 'dir':  '\v[\/](tmp|node_modules|build|git|svn)$',
   "\ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'

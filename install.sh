@@ -27,8 +27,9 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-echo "Setting up Vundle..."
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall
+echo "Setting up vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    && vim +PlugInstall +qall
 echo "...done"
 
 # zsh-autosuggestions

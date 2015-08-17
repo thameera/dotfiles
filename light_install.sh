@@ -28,10 +28,11 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-read -n1 -p "Install Vundle (y/n)? "
+read -n1 -p "Install vim-plug (y/n)? "
 if [[ "$REPLY" == [yY] ]]; then
-    echo "Setting up Vundle..."
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall
+    echo "Setting up vim-plug..."
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+        && vim +PlugInstall +qall
     echo "...done"
 fi
 
