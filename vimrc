@@ -10,7 +10,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mileszs/ack.vim',                         {'on': 'Ack'}
 Plug 'tpope/vim-obsession',                     {'on': ['Obsess', 'Obsession']}
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'ajh17/VimCompletesMe'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-surround'
