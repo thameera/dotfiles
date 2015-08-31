@@ -8,7 +8,7 @@ Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim',                          {'on': 'CtrlP'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'mileszs/ack.vim',                         {'on': 'Ack'}
-Plug 'tpope/vim-obsession',                     {'on': ['Obsess', 'Obsession']}
+Plug 'tpope/vim-obsession'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ajh17/VimCompletesMe'
