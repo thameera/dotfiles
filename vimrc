@@ -246,11 +246,11 @@ vmap <C-v> <Plug>(expand_region_shrink)
 let g:scratch_autohide = 1
 
 " Abbreviations "
-function JSAbbrevs()
+function! JSAbbrevs()
   iab clog console.log();<Esc>hi
 endfunction
 
-function CppAbbrevs()
+function! CppAbbrevs()
     iab scn std::cin >>
     iab sct std::cout <<
     iab sen std::endl
