@@ -34,6 +34,11 @@ Plug 'xolox/vim-easytags'
 " ,tb to show tagbar (mapped below)
 Plug 'majutsushi/tagbar'
 
+" gs in normal mode to open scratch buffer
+" gs in visual mode to paste current selection in scratch
+" gS to  clear the scratch buffer before opening
+Plug 'mtth/scratch.vim'
+
 Plug 'digitaltoad/vim-jade',                    {'for': 'jade'}
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim',                         {'for': ['html', 'css']}
@@ -236,6 +241,9 @@ autocmd FileType html,css EmmetInstall
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" scratch.vim
+let g:scratch_autohide = 1
 
 " Abbreviations "
 function JSAbbrevs()
