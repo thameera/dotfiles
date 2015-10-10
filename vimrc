@@ -201,20 +201,20 @@ nnoremap <leader>a :Ack!
 " CtrlP
 " Load CtrlP on c-p
 nnoremap <c-p> :CtrlP<CR>
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir':  '\v[\/](tmp|node_modules|build|git|svn)$',
-  "\ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
-  "\ }
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](tmp|node_modules|components|build|git|svn)$',
+  \ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
+  \ }
+"if executable('ag')
+    "set grepprg=ag\ --nogroup\ --nocolor
 
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
+    "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"else
+  "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  "let g:ctrlp_prompt_mappings = {
+    "\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    "\ }
+"endif
 
 
 " NERDTree
@@ -281,11 +281,11 @@ endfunction
 
 " easytags
 " Where to look for tags files
-set tags=./tags;,~/.vimtags
+set tags=~/.vimtags
 " Sensible defaults
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
+let g:easytags_dynamic_files = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
 
