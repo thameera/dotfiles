@@ -16,6 +16,7 @@
   head = log -n1
   pull = pull --ff-only # no random merges, thank you very much
   pur = pull --rebase
+  dc = diff --cached
 
   ## Log
   lg = log --oneline --decorate --graph
