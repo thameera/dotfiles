@@ -39,6 +39,9 @@ Plug 'majutsushi/tagbar'
 " gS to  clear the scratch buffer before opening
 Plug 'mtth/scratch.vim'
 
+" For http://editorconfig.org/
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'digitaltoad/vim-jade',                    {'for': 'jade'}
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim',                         {'for': ['html', 'css']}
