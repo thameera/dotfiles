@@ -224,6 +224,7 @@ alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "stat
 alias or='openbox --reconfigure'
 
 alias yt='youtube-dl -i'
+alias yta='youtube-dl --extract-audio --audio-format mp3'
 
 # Suffix aliases
 alias -s cpp=vim
