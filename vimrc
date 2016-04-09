@@ -210,7 +210,7 @@ nnoremap <leader>a :Ack!
 " Load CtrlP on c-p
 nnoremap <c-p> :CtrlP<CR>
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](tmp|node_modules|components|build|git|svn)$',
+  \ 'dir':  '\v[\/](tmp|node_modules|cache|dist|components|build|git|svn)$',
   \ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
   \ }
 "if executable('ag')
