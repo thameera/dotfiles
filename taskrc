@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location=~/Dropbox/.task
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
@@ -28,6 +28,7 @@ data.location=~/.task
 # Urgency stuff
 urgency.user.project.aeas.coefficient=1
 urgency.annotations.coefficient=0
+urgency.tags.coefficient=0
 
 urgency.user.tag.p1.coefficient=1
 urgency.user.tag.p2.coefficient=2
@@ -42,11 +43,11 @@ confirmation=off
 report.yday.description=Tasks done yesterday
 report.yday.columns=project,end,tags,description
 report.yday.filter=end.after:yesterday end.before:today status:completed
-report.yday.sort=project+
+report.yday.sort=end+
 
 # tasks done today
 report.today.description=Tasks done today
 report.today.columns=project,end,status,tags,description
 report.today.filter=end.after:today end.before:tomorrow
-report.today.sort=project+
+report.today.sort=end+
 
