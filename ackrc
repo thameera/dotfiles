@@ -10,3 +10,5 @@
 
 --sort-files
 
+--ignore-dir=platforms
+--ignore-dir=www/lib
