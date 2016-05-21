@@ -60,7 +60,7 @@ fi
 export LESS="-aFiRX"
 export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
 
-HISTSIZE=8000
+HISTSIZE=18000
 setopt appendhistory
 
 alias git='noglob git'
