@@ -25,10 +25,14 @@ data.location=~/Dropbox/.task
 #include /usr/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/share/doc/task/rc/dark-gray-256.theme
 
+color.alternate=on gray3
+color.tagged=
+
 # Urgency stuff
 urgency.user.project.aeas.coefficient=1
 urgency.annotations.coefficient=0
 urgency.tags.coefficient=0
+urgency.blocking.coefficient=0.5
 
 urgency.user.tag.p1.coefficient=1
 urgency.user.tag.p2.coefficient=2
@@ -44,10 +48,12 @@ report.yday.description=Tasks done yesterday
 report.yday.columns=project,end,tags,description
 report.yday.filter=end.after:yesterday end.before:today status:completed
 report.yday.sort=end+
+report.yday.dateformat=Y-M-D H:N
 
 # tasks done today
 report.today.description=Tasks done today
 report.today.columns=project,end,status,tags,description
 report.today.filter=end.after:today end.before:tomorrow
 report.today.sort=end+
+report.today.dateformat=Y-M-D H:N
 
