@@ -210,7 +210,7 @@ nnoremap <leader>a :Ack!
 " Load CtrlP on c-p
 nnoremap <c-p> :CtrlP<CR>
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](tmp|node_modules|cache|dist|components|build|git|svn)$',
+  \ 'dir':  '\v[\/](tmp|node_modules|cache|dist|build|git|svn)$',
   \ 'file': '\v\.(rnc|exe|dll|png|jpg|ico)'
   \ }
 "if executable('ag')
@@ -299,6 +299,9 @@ let g:easytags_async = 1
 let g:easytags_dynamic_files = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
+
+" Jump to definition in new tab
+nnoremap <silent> <leader>tf <C-w><C-]>
 
 " tagbar
 " Open/close tagbar with ,tb
