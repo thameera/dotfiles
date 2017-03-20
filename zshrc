@@ -118,8 +118,8 @@ alias npm='nocorrect npm'
 alias which='nocorrect which'
 
 # ls
-alias ls='ls -F --color=auto --group-directories-first'
-alias ll='ls -lhFSr --color=auto --group-directories-first'
+alias ls='gls -F --color=auto --group-directories-first'
+alias ll='gls -lhFSr --color=auto --group-directories-first'
 alias lt='ls -altr'
 alias lg='ls -go'
 alias lsg='ll | grep'
@@ -282,7 +282,7 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 ## zsh-autosuggestions
 
-source ~/.zsh-autosuggestions/autosuggestions.zsh
+source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
 # Enable autosuggestions automatically
 zle-line-init() {
     zle autosuggest-start
@@ -372,3 +372,5 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+
+export PATH="$HOME/.yarn/bin:$PATH"
