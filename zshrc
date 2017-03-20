@@ -291,6 +291,11 @@ zle -N zle-line-init
 # Accept suggestions without leaving insert mode
 bindkey '^ ' vi-forward-word
 
+# zmv
+autoload -U zmv
+# Now you can do cool stuff like:
+#     zmv '*BluRay*' '$f:gs/BluRay/HDTV'
+
 ## Key bindings ##
 
 # Alt-u to cd to parent dir
