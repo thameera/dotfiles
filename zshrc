@@ -61,7 +61,7 @@ export LESS="-aFiRX"
 export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
 
 HISTSIZE=18000
-setopt appendhistory
+setopt inc_append_history
 
 alias git='noglob git'
 alias g='git'
@@ -81,17 +81,6 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 
 # find files
 function fname() { find . -iname "*$@*"; }
-
-# Search Google/Oxford dict with elinks
-function url-encode() { setopt extendedglob; echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}" }
-function google() { elinks "http://www.google.com/search?q=`url-encode "${(j: :)@}"`" }
-function oxf() { elinks "http://oald8.oxfordlearnersdictionaries.com/dictionary/`url-encode "${(j: :)@}"`" }
-
-# Alt-s to insert sudo (Part 1/2)
-insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-
-# Usage: currency 100 jpy lkr
-currency() { wget -qO- "http://www.google.com/finance/converter?a=$1&from=$2&to=$3&hl=es" |  sed '/res/!d;s/<[^>]*>//g'; }
 
 ## /Functions ##
 
@@ -121,29 +110,16 @@ alias which='nocorrect which'
 alias ls='gls -F --color=auto --group-directories-first'
 alias ll='gls -lhFSr --color=auto --group-directories-first'
 alias lt='ls -altr'
-alias lg='ls -go'
-alias lsg='ll | grep'
 
 # vim
 alias vi='vim'
 alias vip='vi -p' #Open tabs
-alias vis='vi -S' # Open session
 alias ve='vim ~/.vimrc'
 
-alias grepr='grep -r'
-alias tm='ps -ef | grep'  # task manager. Much like pgrep, but better
 alias rm='rm -I'  # much nicer than rm -i
 alias mv='mv -i'  # prompt before overwrite
-alias delswap='rm -f **/.*.swp'
 alias dux='du -sh *|sort -h'  # human-readable, sorted
 alias df='df -h'
-
-# C++
-alias gpp='g++ -std=c++11'
-alias make='nocorrect make'
-
-# beets
-alias bi='beet import'
 
 # git
 alias k='gitk --all &'
@@ -162,34 +138,13 @@ alias gcp='git cherry-pick'
 alias unstage='git reset HEAD'
 alias grh='git reset --hard'
 
-alias gh='githug'
-
-# ps
-alias psa="ps aux"
-alias psg="ps aux | grep"
-
-# xmonad
-alias gp='gnome-panel'
-
 # tmux
 alias tmux='TERM=xterm-256color tmux'
-#alias printcolors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolour${i}\n"; done'
-alias tc='tmux show-buffer'
 alias tmli='tmux list-sessions'
 alias ta='nocorrect tmux attach -t'
 alias tk='nocorrect tmux kill-session -t'
 alias tl='tmux ls'
 alias tn='nocorrect tmux new -s'
-
-# ttytter
-alias tw='~/ws/bin/ttytter/tty2100'
-alias tw1='~/ws/bin/ttytter/tty2100 -rc=1'
-alias tw2='~/ws/bin/ttytter/tty2100 -rc=2'
-
-# nwjs
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias nw='~/Applications/nwjs.app/Contents/MacOS/nwjs'
-fi
 
 # caffeinate
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -206,22 +161,7 @@ alias vl='v -l'
 # colorized cat (needs sudo easy_install Pygments)
 alias c='pygmentize -O style=monokai -f console256 -g'
 
-# mpd
-alias mpdx='mpd --no-daemon --verbose'
-
-alias playy='mpg123 -C'
-
 alias showip='dig +short myip.opendns.com @resolver1.opendns.com'
-
-# rename JPGs in dir to random sha values
-alias shuffle='for fname in *.jpg; do mv "$fname" $(echo "$fname" | sha1sum | cut -f1 -d" ").jpg; done'
-# rename DAT to MPG
-alias dat2mpg='for fname in *.DAT; do mv "$fname" $(echo "$fname"|cut -f1 -d".").mpg; done'
-# battery status
-alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-
-# Openbox
-alias or='openbox --reconfigure'
 
 alias yt='youtube-dl -i'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
@@ -262,18 +202,6 @@ man() {
 export GOPATH=$HOME/ws/go
 export PATH=$PATH:$GOPATH/bin
 
-# Haskell
-export PATH=$PATH:$HOME/.cabal/bin
-
-# Scala
-export PATH=$PATH:$HOME/bin/scala
-
-# Play
-export PATH=$PATH:$HOME/bin/play-2.2.2
-
-# Heroku
-export PATH=$PATH:/usr/local/heroku/bin
-
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtenv
 export PROJECT_HOME=$HOME/ws
@@ -308,10 +236,6 @@ bindkey -s '\ep' '^Upopd >/dev/null; dirs -v|head -n5^M'
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
-
-# Alt-s for sudo (Part 2/2)
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
 
 # Esc-V to open vim for editing command
 autoload -U edit-command-line
