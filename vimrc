@@ -250,7 +250,7 @@ let g:scratch_autohide = 1
 
 " Abbreviations "
 function! JSAbbrevs()
-  iab clog console.log();<Esc>hi
+  iab clog console.log()<Esc>i
 endfunction
 
 function! CppAbbrevs()
@@ -309,4 +309,13 @@ nmap <silent> <leader>tb :TagbarToggle<CR>
 
 " vim-jsx
 let g:jsx_ext_required = 0
+
+" visual-at
+" Use @ to run a macro on visually seelected lines
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
