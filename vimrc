@@ -45,7 +45,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'digitaltoad/vim-jade',                    {'for': 'jade'}
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim',                         {'for': ['html', 'css']}
-Plug 'gregsexton/MatchTag'
+"Plug 'gregsexton/MatchTag'
 Plug 'mxw/vim-jsx'
 
 " vim-go
@@ -54,6 +54,12 @@ Plug 'mxw/vim-jsx'
 " :GoDoc fmt
 " :GoDoc fmt Printf
 Plug 'fatih/vim-go',                            {'for': 'go'}
+
+" markdown-preview
+" Works with .md files. Needs node + yarn to install.
+" :MarkdownPreview        <- show preview
+" :MarkdownPreviewStop    <- stop preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Previously used plugins
 ""Bundle 'Lokaltog/powerline'
@@ -240,6 +246,9 @@ au Syntax * RainbowParenthesesLoadBraces
 "Enable only for html/css files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" ejs = html
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
