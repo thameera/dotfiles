@@ -1,6 +1,6 @@
 [user]
   name = Thameera Senanayaka
-  email = thameera123@gmail.com
+  email = me@thameera.com
 
 [alias]
   ci = commit
@@ -41,7 +41,7 @@
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 
 [branch]
-  autosetuprebase = always
+  autosetuprebase = never
 
 [merge]
   tool = mymeld
@@ -65,3 +65,6 @@
 [color]
   ui = auto
 
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX

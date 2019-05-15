@@ -59,7 +59,10 @@ Plug 'fatih/vim-go',                            {'for': 'go'}
 " Works with .md files. Needs node + yarn to install.
 " :MarkdownPreview        <- show preview
 " :MarkdownPreviewStop    <- stop preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+" Typescript
+Plug 'leafgarland/typescript-vim'
 
 " Previously used plugins
 ""Bundle 'Lokaltog/powerline'

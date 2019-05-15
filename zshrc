@@ -82,6 +82,9 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 # find files
 function fname() { find . -iname "*$@*"; }
 
+# convert m4a to mp3
+function m43() { ffmpeg "$@".mp3 -i "$@" -codec:a libmp3lame -qscale:a 1; }
+
 ## /Functions ##
 
 # Global aliases
@@ -301,5 +304,14 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+ns() {
+  echo host -a
+  host -a $1
+  echo
+  echo freegeoip.net
+  curl freegeoip.net/json/$1
+}
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
