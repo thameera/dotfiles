@@ -154,6 +154,8 @@ inoremap <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 set hlsearch
 " switch off current search with ,/
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
+" Show [n of N] search counts https://vi.stackexchange.com/a/20148/53
+:set shortmess-=S
 
 "case sensitivity
 set ignorecase
