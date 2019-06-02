@@ -164,6 +164,7 @@ alias showip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 alias yt='youtube-dl -i'
 alias yta='youtube-dl --extract-audio --audio-format mp3'
+alias yti='youtube-dl-interactive'
 
 # Suffix aliases
 alias -s cpp=vim

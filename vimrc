@@ -216,6 +216,7 @@ nmap <C-N><C-N> :set invnumber<CR>
 
 " Ack
 nnoremap <leader>a :Ack! 
+let g:ackprg = 'ag --vimgrep'
 
 " CtrlP
 " Load CtrlP on c-p
