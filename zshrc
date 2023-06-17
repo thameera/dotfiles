@@ -40,7 +40,11 @@ ZSH_THEME="af-magic"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git history-substring-search)
+plugins=(git history-substring-search zsh-autosuggestions asdf fzf-zsh-plugin)
+
+# To disable backslashes being added when pasting URLs
+# Should be called before sourcing oh-my-zsh.sh
+DISABLE_MAGIC_FUNCTIONS=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -56,7 +60,8 @@ fi
 export LESS="-aFiRX"
 export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
 
-HISTSIZE=18000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt inc_append_history
 
 alias git='noglob git'
@@ -121,7 +126,6 @@ alias dux='du -sh *|sort -h'  # human-readable, sorted
 alias df='df -h'
 
 # git
-alias k='gitk --all &'
 alias gc='git checkout'
 alias gs='git status'
 alias ga='git add'
@@ -162,22 +166,8 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 alias showip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-alias yt='youtube-dl -i'
-alias yta='youtube-dl --extract-audio --audio-format mp3'
-alias yti='youtube-dl-interactive'
-
-# Suffix aliases
-alias -s cpp=vim
-alias -s h=vim
-
 alias ze="vi ~/.zshrc"
 alias zr="source ~/.zshrc"
-
-# cowsay fortune each time a bash session starts
-if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-    #fortune -a | fmt -80 -s | cowsay -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n;
-    fortune -as | cowsay
-fi
 
 if [ -e ~/.secrets ]; then
   source ~/.secrets
@@ -198,32 +188,6 @@ man() {
     man "$@"
 }
 
-# Go
-export GOPATH=$HOME/ws/go
-export PATH=$PATH:$GOPATH/bin
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtenv
-export PROJECT_HOME=$HOME/ws
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
-
-## zsh-autosuggestions
-
-source ~/.zsh-autosuggestions/zsh-autosuggestions.zsh
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
-# Accept suggestions without leaving insert mode
-bindkey '^ ' vi-forward-word
-
-# zmv
-autoload -U zmv
-# Now you can do cool stuff like:
-#     zmv '*BluRay*' '$f:gs/BluRay/HDTV'
-
 ## Key bindings ##
 
 # Alt-u to cd to parent dir
@@ -243,72 +207,3 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 ## /Key bindings ##
-
-# taskwarrior
-alias t="task"
-alias tt="clear; task"
-
-### Vi mode status indicator ###
-# urxvt (and family) accepts even #RRGGBB
-INSERT_PROMPT="gray"
-COMMAND_PROMPT="red"
-
-# helper for setting color including all kinds of terminals
-set_prompt_color() {
-    if [[ $TERM = "linux" ]]; then
-       # nothing
-    elif [[ $TMUX != '' ]]; then
-        printf '\033Ptmux;\033\033]12;%b\007\033\\' "$1"
-    else
-        echo -ne "\033]12;$1\007"
-    fi
-}
-
-# change cursor color basing on vi mode
-zle-keymap-select () {
-    if [ $KEYMAP = vicmd ]; then
-        set_prompt_color $COMMAND_PROMPT
-    else
-        set_prompt_color $INSERT_PROMPT
-    fi
-}
-
-zle-line-finish() {
-    set_prompt_color $INSERT_PROMPT
-}
-
-zle-line-init () {
-    zle -K viins
-    set_prompt_color $INSERT_PROMPT
-}
-
-zle -N zle-keymap-select
-zle -N zle-line-init
-zle -N zle-line-finish
-### /Vi mode status indicator ###
-
-
-# Use C-Z to jump back to vim after a C-Z
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-ns() {
-  echo host -a
-  host -a $1
-  echo
-  echo freegeoip.net
-  curl freegeoip.net/json/$1
-}
-
-export PATH="$HOME/.yarn/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
