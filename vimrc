@@ -24,64 +24,9 @@ Plug 'scrooloose/nerdtree',                     {'on': ['NERDTree', 'NERDTreeTog
 " <Leader>K to clear all words
 Plug 'vasconcelloslf/vim-interestingwords'
 
-" Reqd for vim-easytags
-Plug 'xolox/vim-misc'
-
-" :UpdateTags to create tags file
-" Ctrl+] to jump to definition
-Plug 'xolox/vim-easytags'
-
-" ,tb to show tagbar (mapped below)
-Plug 'majutsushi/tagbar'
-
-" gs in normal mode to open scratch buffer
-" gs in visual mode to paste current selection in scratch
-" gS to  clear the scratch buffer before opening
-Plug 'mtth/scratch.vim'
-
-" For http://editorconfig.org/
-Plug 'editorconfig/editorconfig-vim'
-
-Plug 'digitaltoad/vim-jade',                    {'for': 'jade'}
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim',                         {'for': ['html', 'css']}
-"Plug 'gregsexton/MatchTag'
 Plug 'mxw/vim-jsx'
-
-" vim-go
-" Formats source on save
-" :GoImport <path>
-" :GoDoc fmt
-" :GoDoc fmt Printf
-Plug 'fatih/vim-go',                            {'for': 'go'}
-
-" markdown-preview
-" Works with .md files. Needs node + yarn to install.
-" :MarkdownPreview        <- show preview
-" :MarkdownPreviewStop    <- stop preview
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-" Typescript
-Plug 'leafgarland/typescript-vim'
-
-" Previously used plugins
-""Bundle 'Lokaltog/powerline'
-""Bundle 'mhinz/vim-startify'
-"Bundle 'Raimondi/delimitMate'
-""Bundle 'SirVer/ultisnips'
-""Bundle 'suan/vim-instant-markdown'
-""Bundle 'chilicuil/vim-sml-coursera'
-"Bundle 'mikewest/vimroom'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'gregsexton/gitv'
-"Bundle 'rking/ag.vim'
-"Bundle 'groenewege/vim-less'
-"Bundle 'Shougo/neocomplete.vim'
-"Bundle 'tpope/vim-dispatch'
-""Bundle 'Valloric/YouCompleteMe'
-"Bundle 'sheerun/vim-polyglot'
-"Bundle 'fholgado/minibufexpl.vim'
-"Bundle 'mattn/flappyvird-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -142,8 +87,8 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Swap files directory
-set directory=~/tmp
-set backupdir=~/tmp
+set directory=~/.tmp
+set backupdir=~/.tmp
 
 " Insert mode calculator
 " Press <C-A> after typing an operation
@@ -204,7 +149,7 @@ let g:netrw_liststyle=3  " nerd-tree like
 
 "Background color
 "highlight Normal ctermbg=235
-"colorscheme darkblue
+colorscheme desert
 
 "Line numbers
 set nu
@@ -257,6 +202,7 @@ autocmd FileType html,css EmmetInstall
 au BufNewFile,BufRead *.ejs set filetype=html
 
 " vim-expand-region
+" In visual mode, use v and C-v to expand/shrink selected region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
@@ -305,22 +251,8 @@ function! s:AckMotion(type) abort
 endfunction
 " /Ack motions
 
-" easytags
-" Where to look for tags files
-set tags=~/.vimtags
-" Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 1
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
-
 " Jump to definition in new tab
 nnoremap <silent> <leader>tf <C-w><C-]>
-
-" tagbar
-" Open/close tagbar with ,tb
-nmap <silent> <leader>tb :TagbarToggle<CR>
 
 " vim-jsx
 let g:jsx_ext_required = 0
