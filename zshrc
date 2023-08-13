@@ -102,14 +102,6 @@ alias -g G='| grep'
 alias -g dot='~/ws/dotfiles'
 alias -g N='; notify-send "End command"'
 
-# nocorrect
-alias mv='nocorrect mv'
-alias cp='nocorrect cp'
-alias mkdir='nocorrect mkdir'
-alias tmux='nocorrect tmux'
-alias npm='nocorrect npm'
-alias which='nocorrect which'
-
 # ls
 alias ls='gls -F --color=auto --group-directories-first'
 alias ll='gls -lhFSr --color=auto --group-directories-first'
@@ -159,9 +151,6 @@ alias z='nocorrect _z 2>&1'
 # rupa/v
 alias vl='v -l'
 
-# colorized cat (needs sudo easy_install Pygments)
-alias c='pygmentize -O style=monokai -f console256 -g'
-
 alias showip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 alias ze="vi ~/.zshrc"
@@ -187,12 +176,6 @@ man() {
 }
 
 ## Key bindings ##
-
-# Alt-u to cd to parent dir
-bindkey -s '\eu' '^Ucd ..^M'
-
-# Pop the dir stack
-bindkey -s '\ep' '^Upopd >/dev/null; dirs -v|head -n5^M'
 
 # History substr search
 bindkey "^R" history-incremental-search-backward
