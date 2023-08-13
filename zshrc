@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$PATH:$HOME/ws/bin:$HOME/bin
+export PATH=$PATH:$HOME/ws/bin:$HOME/bin:$HOME/.local/bin
 
 # Give priority to Gnu coreutils in OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -115,10 +115,8 @@ alias ls='gls -F --color=auto --group-directories-first'
 alias ll='gls -lhFSr --color=auto --group-directories-first'
 alias lt='ls -altr'
 
-# vim
-alias vi='vim'
-alias vip='vi -p' #Open tabs
-alias ve='vim ~/.vimrc'
+# nvim
+alias vi='nvim'
 
 alias rm='rm -I'  # much nicer than rm -i
 alias mv='mv -i'  # prompt before overwrite

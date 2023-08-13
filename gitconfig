@@ -2,6 +2,9 @@
   name = Thameera Senanayaka
   email = me@thameera.com
 
+[init]
+  defaultBranch = main
+
 [alias]
   ci = commit
   cia = commit -as
@@ -53,9 +56,6 @@
 
 [push]
   default = upstream
-
-[pull]
-  rebase = preserve
 
 [core]
   autocrlf = false
