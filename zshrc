@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$PATH:$HOME/ws/bin:$HOME/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/ws/bin:$HOME/bin:$HOME/.local/bin:$HOME/go/bin
 
 # Give priority to Gnu coreutils in OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
