@@ -86,6 +86,19 @@ function fname() { find . -iname "*$@*"; }
 # convert m4a to mp3
 function m43() { ffmpeg "$@".mp3 -i "$@" -codec:a libmp3lame -qscale:a 1; }
 
+# caffeinate
+caff() {
+  if [ $# -eq 0 ]; then
+    caffeinate -disu
+  elif [ $# -eq 1 ]; then
+    minutes="$1"
+    seconds=$((minutes * 60))
+    caffeinate -disu -t "$seconds"
+  else
+    echo "Usage: caff [minutes]"
+  fi
+}
+
 ## /Functions ##
 
 # Global aliases
@@ -138,11 +151,6 @@ alias ta='nocorrect tmux attach -t'
 alias tk='nocorrect tmux kill-session -t'
 alias tl='tmux ls'
 alias tn='nocorrect tmux new -s'
-
-# caffeinate
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias caff='caffeinate -disu'
-fi
 
 # rupa/z
 source ~/bin/z.sh
