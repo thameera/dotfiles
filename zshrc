@@ -63,6 +63,8 @@ export LESSOPEN='|/usr/bin/lesspipe %s'  # for piping pdf files
 HISTSIZE=100000
 SAVEHIST=100000
 setopt inc_append_history
+setopt EXTENDED_HISTORY # save timestamp
+setopt HIST_EXPIRE_DUPS_FIRST # expire duplicates first when trimming history
 
 alias git='noglob git'
 alias g='git'
