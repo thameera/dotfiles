@@ -187,11 +187,6 @@ man() {
 
 ## Key bindings ##
 
-# History substr search
-bindkey "^R" history-incremental-search-backward
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
-
 # Esc-V to open vim for editing command
 autoload -U edit-command-line
 zle -N edit-command-line
