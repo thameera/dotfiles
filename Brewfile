@@ -11,5 +11,6 @@ brew "diff-so-fancy"
 brew "neovim"
 brew "tree"
 brew "nginx"
+brew "jq"
 
 cask "font-inconsolata-nerd-font"
