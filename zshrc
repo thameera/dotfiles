@@ -91,9 +91,11 @@ function m43() { ffmpeg "$@".mp3 -i "$@" -codec:a libmp3lame -qscale:a 1; }
 # caffeinate
 caff() {
   if [ $# -eq 0 ]; then
+    echo "Caffeinating..."
     caffeinate -disu
   elif [ $# -eq 1 ]; then
     minutes="$1"
+    echo "Caffeinating for $minutes minutes..."
     seconds=$((minutes * 60))
     caffeinate -disu -t "$seconds"
   else
