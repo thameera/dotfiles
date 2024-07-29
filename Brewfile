@@ -14,5 +14,6 @@ brew "tree"
 brew "nginx"
 brew "jq"
 brew "jordanbaird-ice"
+brew "jesseduffield/lazygit/lazygit"
 
 cask "font-inconsolata-nerd-font"
