@@ -1,3 +1,6 @@
+" IMPORTANT: This file is no longer maintained.
+" See https://github.com/thameera/nvim-config for the neovim config.
+
 let mapleader = ","
 
 set nocompatible
