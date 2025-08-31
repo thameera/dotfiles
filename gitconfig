@@ -26,6 +26,8 @@
   lga = log --oneline --decorate --graph --all
   log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
   lg2 = log --oneline --decorate --graph --pretty=format:'%C(yellow)%h%Creset -%C(white)%d%Creset %s %Cgreen(%cr)'
+  # similar to `lg`, but with absolute date
+  ld = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Creset %C(white)%d%Creset %s' --date=format-local:'%Y-%m-%d %H:%M:%S'
 
   ## Lookup aliases
   who = shortlog -s --
