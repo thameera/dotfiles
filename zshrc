@@ -147,6 +147,7 @@ alias gcon='cat .git/config'
 alias gcp='git cherry-pick'
 alias unstage='git reset HEAD'
 alias grh='git reset --hard'
+alias gld='git log --graph --decorate --pretty=format:"%C(yellow)%h%Creset %Cgreen%ad%Creset %C(white)%d%Creset %s" --date=format-local:"%Y-%m-%d %H:%M:%S" | nl -w2 -s" "'
 
 # tmux
 alias tmux='TERM=xterm-256color tmux'
