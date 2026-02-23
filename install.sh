@@ -8,7 +8,7 @@
 
 dir=~/ws/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles_old             # old dotfiles backup directory
-files="ackrc beetsconfig gitconfig gitignore inputrc mpdconf speedswapper taskrc tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
+files="gitconfig gitignore inputrc tmux.conf vimrc zshenv zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -27,12 +27,10 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-echo "Setting up vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
-    && vim +PlugInstall +qall
-echo "...done"
-
 # zsh-autosuggestions
 echo "Cloning zsh-autosuggestions..."
 git clone --depth 1 git://github.com/tarruda/zsh-autosuggestions ~/.zsh-autosuggestions
 
+# fzf
+echo "Cloning fzf-zsh-plugin... (make sure fzf is installed with brew)"
+git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
