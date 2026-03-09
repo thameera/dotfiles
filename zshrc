@@ -91,11 +91,15 @@ function m43() { ffmpeg "$@".mp3 -i "$@" -codec:a libmp3lame -qscale:a 1; }
 # caffeinate
 caff() {
   if [ $# -eq 0 ]; then
-    echo "Caffeinating..."
+    echo "Caffeinating indefinitely... (Press Ctrl+C to stop)"
     caffeinate -disu
   elif [ $# -eq 1 ]; then
     minutes="$1"
-    echo "Caffeinating for $minutes minutes..."
+    # Assumes coreutils being installed if macOS
+    end_time=$(date -d "$minutes minutes" +"%H:%M")
+    
+    echo "Caffeinating for $minutes minutes until $end_time..."
+    
     seconds=$((minutes * 60))
     caffeinate -disu -t "$seconds"
   else
