@@ -29,7 +29,7 @@ done
 
 # zsh-autosuggestions
 echo "Cloning zsh-autosuggestions..."
-git clone --depth 1 git://github.com/tarruda/zsh-autosuggestions ~/.zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # fzf
 echo "Cloning fzf-zsh-plugin... (make sure fzf is installed with brew)"
