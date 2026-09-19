@@ -1,3 +1,5 @@
 *.sw?
 Session.vim
 .DS_Store
+
+**/.claude/settings.local.json

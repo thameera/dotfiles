@@ -40,7 +40,7 @@ ZSH_THEME="af-magic"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git history-substring-search zsh-autosuggestions asdf fzf-zsh-plugin)
+plugins=(git history-substring-search zsh-autosuggestions asdf fzf-zsh-plugin direnv)
 
 # To disable backslashes being added when pasting URLs
 # Should be called before sourcing oh-my-zsh.sh
@@ -90,21 +90,62 @@ function m43() { ffmpeg "$@".mp3 -i "$@" -codec:a libmp3lame -qscale:a 1; }
 
 # caffeinate
 caff() {
-  if [ $# -eq 0 ]; then
-    echo "Caffeinating indefinitely... (Press Ctrl+C to stop)"
+  if (( $# == 0 )); then
+    printf 'Caffeinating indefinitely... (Ctrl+C to stop)\n'
     caffeinate -disu
-  elif [ $# -eq 1 ]; then
-    minutes="$1"
-    # Assumes coreutils being installed if macOS
-    end_time=$(date -d "$minutes minutes" +"%H:%M")
-    
-    echo "Caffeinating for $minutes minutes until $end_time..."
-    
-    seconds=$((minutes * 60))
-    caffeinate -disu -t "$seconds"
-  else
-    echo "Usage: caff [minutes]"
+    return
   fi
+
+  if (( $# != 1 )) || [[ ! $1 =~ ^[1-9][0-9]*[smhd]?$ ]]; then
+    printf 'Usage: caff [positive whole duration]\n' >&2
+    printf 'Examples: caff 30 | caff 45s | caff 30m | caff 2h | caff 1d\n' >&2
+    return 2
+  fi
+
+  local amount=${1%[smhd]}
+  local seconds
+
+  case $1 in
+    *s) seconds=$amount ;;
+    *h) seconds=$((amount * 3600)) ;;
+    *d) seconds=$((amount * 86400)) ;;
+    *)  seconds=$((amount * 60)) ;;
+  esac
+
+  local end_time
+  end_time=$(/bin/date -r "$(( $(/bin/date +%s) + seconds ))" '+%I:%M%p') || return
+  end_time=${end_time#0}
+
+  case $end_time in
+    *AM) end_time="${end_time%AM}am" ;;
+    *PM) end_time="${end_time%PM}pm" ;;
+  esac
+
+  (
+    caffeinate -disu -t "$seconds" &
+    pid=$!
+    start=$SECONDS
+
+    trap 'kill "$pid" 2>/dev/null || :; wait "$pid" 2>/dev/null || :; printf "\r\033[KStopped.\n"; exit 130' INT
+
+    printf 'Caffeinating until %s\n' "$end_time"
+
+    while kill -0 "$pid" 2>/dev/null; do
+      remaining=$((seconds - (SECONDS - start)))
+      (( remaining <= 0 )) && break
+
+      printf '\r\033[K%d:%02d remaining' \
+        "$((remaining / 60))" "$((remaining % 60))"
+      sleep 1
+    done
+
+    if wait "$pid"; then
+      printf '\r\033[KDone.\n'
+    else
+      printf '\r\033[KCaffeinate stopped unexpectedly.\n' >&2
+      exit 1
+    fi
+  )
 }
 
 ## /Functions ##
